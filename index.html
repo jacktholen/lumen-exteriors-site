@@ -798,6 +798,35 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 @media (max-width:760px){.ticker{font-size:.95rem;padding:12px 0}.h3trio img{border-width:3px}.h3trio img:nth-child(2){margin-top:-8px}}
 .branch{font-family:var(--body);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:26px}
 .branch+.townlist{margin-top:10px}
+
+/* purification steps: water samples that clear up, a running pipe, and a highlight that walks the steps */
+.flow .st::before{height:6px;background:repeating-linear-gradient(90deg,var(--p1,#f5b81f) 0 14px,var(--p2,#ffd978) 14px 28px);background-size:28px 100%;animation:pipe 1s linear infinite}
+.flow .st:nth-child(2)::before{--p1:#e2c067;--p2:#f1dc9c;background:repeating-linear-gradient(90deg,var(--p1) 0 14px,var(--p2) 14px 28px);background-size:28px 100%}
+.flow .st:nth-child(n+3)::before{--p1:#2f8fd0;--p2:#8fcdf6;background:repeating-linear-gradient(90deg,var(--p1) 0 14px,var(--p2) 14px 28px);background-size:28px 100%}
+@keyframes pipe{to{background-position:28px 0}}
+.flow .k,.flow h3{padding-right:66px}
+.tank{position:absolute;top:20px;right:16px;width:56px;height:56px;border-radius:50%;overflow:hidden;background:#f3f7fb;box-shadow:0 0 0 3px #fff,0 0 0 4px #dbe7f1,0 10px 18px -10px rgba(34,37,42,.5);transition:box-shadow .4s,transform .4s cubic-bezier(.2,.7,.2,1)}
+.tank::before{content:"";position:absolute;left:-50%;width:200%;aspect-ratio:1;top:34%;border-radius:41%;background:var(--w,#5aaeea);animation:slosh 5s linear infinite}
+.tank::after{content:"";position:absolute;left:-55%;width:210%;aspect-ratio:1;top:40%;border-radius:44%;background:var(--w,#5aaeea);opacity:.5;animation:slosh 8s linear infinite reverse}
+@keyframes slosh{to{transform:rotate(360deg)}}
+.tank i{position:absolute;z-index:1;width:5px;height:5px;border-radius:50%;background:#7a5a22;left:var(--x);top:var(--y);animation:grit 3s ease-in-out infinite;animation-delay:var(--dl)}
+@keyframes grit{0%,100%{transform:translate(0,0)}50%{transform:translate(4px,-6px)}}
+.tank b{position:absolute;z-index:2;top:0;bottom:0;width:38%;left:-50%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.9),transparent);transform:skewX(-18deg);animation:glint 3s ease-in-out infinite}
+@keyframes glint{0%,55%{left:-50%}100%{left:130%}}
+.flow .st:nth-child(1) .tank{--w:#b98e4c}
+.flow .st:nth-child(2) .tank{--w:#cdb97c}
+.flow .st:nth-child(3) .tank{--w:#5aaeea}
+.flow .st:nth-child(4) .tank{--w:#3f9be0}
+.flow .st:nth-child(5) .tank{--w:#a9dcff}
+.flow .st{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .5s,opacity .8s}
+.flow .st.on{transform:translateY(-8px);border-color:var(--sky2);box-shadow:0 30px 46px -28px rgba(31,111,196,.7)}
+.flow .st.on:nth-child(-n+2){border-color:var(--led);box-shadow:0 30px 46px -28px rgba(232,165,26,.8)}
+.flow .st.on .tank{transform:scale(1.14);box-shadow:0 0 0 3px #fff,0 0 0 5px var(--sky2),0 0 22px 4px rgba(90,174,234,.55)}
+.flow .st.on:nth-child(-n+2) .tank{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--led),0 0 22px 4px rgba(245,184,31,.55)}
+.flow .st.on .k{letter-spacing:.2em}
+.flow .k{transition:letter-spacing .4s}
+.flow .st.refill .bar i{width:100%!important;transition:none}
+@media (max-width:560px){.flow .st>p{padding-right:60px}}
 </style>
 </head>
 <body>
@@ -1270,6 +1299,22 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
   addEventListener('scroll',sp,{passive:true}); addEventListener('resize',sp); sp();
   var t=document.getElementById('qTotal');
   if(t&&'MutationObserver' in window) new MutationObserver(function(){ t.classList.remove('bump'); void t.offsetWidth; t.classList.add('bump'); }).observe(t,{childList:true,characterData:true,subtree:true});
+})();
+</script>
+<script>
+(function(){
+  var sts=[].slice.call(document.querySelectorAll('.flow .st')); if(!sts.length) return;
+  var grit=[[[22,52],[58,60],[40,70],[70,46],[30,78],[52,82],[66,74]],[[30,60],[60,72],[44,82]],[],[],[]];
+  sts.forEach(function(st,n){ var t=document.createElement('div'); t.className='tank'; t.setAttribute('aria-hidden','true');
+    (grit[n]||[]).forEach(function(g,k){ var d=document.createElement('i'); d.style.setProperty('--x',g[0]+'%'); d.style.setProperty('--y',g[1]+'%'); d.style.setProperty('--dl',(-k*.4)+'s'); t.appendChild(d); });
+    if(n===sts.length-1) t.appendChild(document.createElement('b'));
+    st.insertBefore(t,st.firstChild); });
+  var cur=-1, vis=false, timer=null;
+  function step(){ if(cur>=0) sts[cur].classList.remove('on'); cur=(cur+1)%sts.length; var st=sts[cur]; st.classList.add('on','refill'); void st.offsetWidth; requestAnimationFrame(function(){ requestAnimationFrame(function(){ st.classList.remove('refill'); }); }); }
+  function start(){ if(timer) return; step(); timer=setInterval(step,2200); }
+  function stop(){ clearInterval(timer); timer=null; }
+  var flow=document.querySelector('.flow');
+  if('IntersectionObserver' in window) new IntersectionObserver(function(es){ es[0].isIntersecting?start():stop(); },{threshold:.15}).observe(flow); else start();
 })();
 </script>
 </body>
