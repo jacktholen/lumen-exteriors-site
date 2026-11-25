@@ -827,6 +827,13 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .flow .k{transition:letter-spacing .4s}
 .flow .st.refill .bar i{width:100%!important;transition:none}
 @media (max-width:560px){.flow .st>p{padding-right:60px}}
+
+/* steps: plain result chips, solid top strip */
+.flow .st::before,.flow .st:nth-child(2)::before,.flow .st:nth-child(n+3)::before{animation:none;height:4px;background:var(--led)}
+.flow .st:nth-child(2)::before{background:#e2c067}
+.flow .st:nth-child(n+3)::before{background:var(--sky2)}
+.lvl{justify-self:start;margin-top:6px;padding:5px 11px;border-radius:999px;font-weight:700;font-size:.82rem;background:var(--warm);color:var(--deepamber)}
+.flow .st:nth-child(n+3) .lvl{background:var(--skyl);color:var(--sky)}
 </style>
 </head>
 <body>
@@ -895,11 +902,11 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
       </div></div>
     </div>
     <div class="flow" aria-label="How tap water becomes pure water">
-      <div class="st"><span class="k">STEP 1</span><h3>Tap water in</h3><p>Hard water carries calcium, magnesium and other dissolved minerals.</p><div class="ppm">Minerals <span class="bar"><i style="width:100%"></i></span></div></div>
-      <div class="st"><span class="k">STEP 2</span><h3>Filter</h3><p>Sediment and carbon filters catch grit, rust and chlorine.</p><div class="ppm">Minerals <span class="bar"><i style="width:92%"></i></span></div></div>
-      <div class="st"><span class="k">STEP 3</span><h3>Deionize</h3><p>Resin in the tall steel tank pulls out the dissolved minerals, leaving water close to zero dissolved solids.</p><div class="ppm">Minerals <span class="bar"><i class="clean" style="width:2%"></i></span></div></div>
-      <div class="st"><span class="k">STEP 4</span><h3>Scrub and rinse</h3><p>Pure water flows through a soft brush on the pole. It loosens dirt, then rinses glass and frames.</p><div class="ppm">Soap used <span class="bar"><i class="clean" style="width:0%"></i></span></div></div>
-      <div class="st"><span class="k">STEP 5</span><h3>Dries spot-free</h3><p>With no minerals or soap in the water, there's nothing left on the glass when it dries.</p><div class="ppm">Residue <span class="bar"><i class="clean" style="width:0%"></i></span></div></div>
+      <div class="st"><span class="k">STEP 1</span><h3>Tap water in</h3><p>Hard water carries calcium, magnesium and other dissolved minerals.</p><div class="lvl">Minerals: high</div></div>
+      <div class="st"><span class="k">STEP 2</span><h3>Filter</h3><p>Sediment and carbon filters catch grit, rust and chlorine.</p><div class="lvl">Minerals: still high</div></div>
+      <div class="st"><span class="k">STEP 3</span><h3>Deionize</h3><p>Resin in the tall steel tank pulls out the dissolved minerals, leaving water close to zero dissolved solids.</p><div class="lvl">Minerals: near zero</div></div>
+      <div class="st"><span class="k">STEP 4</span><h3>Scrub and rinse</h3><p>Pure water flows through a soft brush on the pole. It loosens dirt, then rinses glass and frames.</p><div class="lvl">Soap used: none</div></div>
+      <div class="st"><span class="k">STEP 5</span><h3>Dries spot-free</h3><p>With no minerals or soap in the water, there's nothing left on the glass when it dries.</p><div class="lvl">Residue: none</div></div>
     </div>
 
 
@@ -1310,7 +1317,7 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
     if(n===sts.length-1) t.appendChild(document.createElement('b'));
     st.insertBefore(t,st.firstChild); });
   var cur=-1, vis=false, timer=null;
-  function step(){ if(cur>=0) sts[cur].classList.remove('on'); cur=(cur+1)%sts.length; var st=sts[cur]; st.classList.add('on','refill'); void st.offsetWidth; requestAnimationFrame(function(){ requestAnimationFrame(function(){ st.classList.remove('refill'); }); }); }
+  function step(){ if(cur>=0) sts[cur].classList.remove('on'); cur=(cur+1)%sts.length; var st=sts[cur]; st.classList.add('on'); }
   function start(){ if(timer) return; step(); timer=setInterval(step,2200); }
   function stop(){ clearInterval(timer); timer=null; }
   var flow=document.querySelector('.flow');
