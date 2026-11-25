@@ -885,6 +885,29 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .rhythm{margin-top:16px;padding:18px 22px;border-radius:18px;background:linear-gradient(135deg,#fff6dc,#eaf5fe);font-weight:600;font-size:1.05rem}
 @media (max-width:560px){.months{gap:4px}.months span{font-size:.7rem;border-radius:7px}.cal{padding:16px 12px}}
 
+/* cleaning plans */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:44px}
+@media (max-width:760px){.plans{grid-template-columns:1fr}}
+.plans-head{margin-top:56px;display:grid;gap:10px;max-width:60ch}
+.plans-head p{color:var(--muted);font-size:1.06rem}
+.plans-head+.plans{margin-top:22px}
+.plan{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px 24px;display:grid;gap:14px;align-content:start;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.plan:hover{transform:translateY(-5px);box-shadow:0 34px 50px -34px rgba(34,37,42,.5)}
+.plan.top{background:linear-gradient(160deg,#22252a,#3a2c0c);color:#fff;border-color:#22252a}
+.plan .tag{justify-self:start;padding:5px 12px;border-radius:999px;background:var(--warm);color:var(--deepamber);font-weight:800;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+.plan.top .tag{background:#ffd35c;color:#221a05}
+.plan h3{font-size:1.7rem}
+.plan p{color:var(--muted)}
+.plan.top p{color:rgba(255,255,255,.8)}
+.visits{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.visits li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:var(--panel);font-weight:600}
+.plan.top .visits li{background:rgba(255,255,255,.08)}
+.visits i{flex:none;width:12px;height:12px;border-radius:50%;background:var(--c)}
+.visits span{margin-left:auto;font-weight:500;font-size:.9rem;color:var(--muted)}
+.plan.top .visits span{color:rgba(255,255,255,.7)}
+.plan .btn{justify-content:center;margin-top:4px}
+.plan:not(.top) .btn-ghost{border-color:var(--led);color:var(--deepamber)}
+
 /* location pages: their own header and color theme */
 .lhero{position:relative;overflow:hidden;isolation:isolate;padding:54px 0 64px;background:var(--hb)}
 .lhero::before{content:"";position:absolute;z-index:-1;width:min(700px,110vw);aspect-ratio:1;right:-16%;top:-30%;border-radius:50%;background:radial-gradient(circle,var(--hg),transparent 68%);animation:drift1 14s ease-in-out infinite alternate}
@@ -983,6 +1006,7 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
     </div>
     <div class="seasons"><article class="sea sp" data-sea="sp"><span class="nowtag">Right now</span><span class="mo">March to May</span><h3>Spring</h3><dl><div><dt>What builds up</dt><dd>The yellow pine and oak pollen that coats everything, plus spring showers.</dd></div><div><dt>Best time to clean</dt><dd>Mid-April through May, after the heavy pollen has settled.</dd></div></dl></article><article class="sea su" data-sea="su"><span class="nowtag">Right now</span><span class="mo">June to August</span><h3>Summer</h3><dl><div><dt>What builds up</dt><dd>Humidity, afternoon thunderstorms, and mildew starting on frames and sills.</dd></div><div><dt>Best time to clean</dt><dd>Mornings, ahead of the heat and the afternoon storms. Good for a mid-year rinse.</dd></div></dl></article><article class="sea fa" data-sea="fa"><span class="nowtag">Right now</span><span class="mo">September to November</span><h3>Fall</h3><dl><div><dt>What builds up</dt><dd>Salt, wind-blown debris and rain spotting from tropical storm season.</dd></div><div><dt>Best time to clean</dt><dd>Late October through November, once storm season winds down and before the holidays.</dd></div></dl></article><article class="sea wi" data-sea="wi"><span class="nowtag">Right now</span><span class="mo">December to February</span><h3>Winter</h3><dl><div><dt>What builds up</dt><dd>Salt film and light dust, with a low sun that shows every streak.</dd></div><div><dt>Best time to clean</dt><dd>Any mild, dry day. Winters here are gentle enough for outside glass.</dd></div></dl></article></div>
     <div class="cal" id="cal"><h3>Best months for a cleaning in Charleston</h3><div class="months" role="img" aria-label="April, May, October and November are the best months. Every other month is a good month."><span class="good" style="--i:0" data-m="0" title="January">J</span><span class="good" style="--i:1" data-m="1" title="February">F</span><span class="good" style="--i:2" data-m="2" title="March">M</span><span class="best" style="--i:3" data-m="3" title="April">A</span><span class="best" style="--i:4" data-m="4" title="May">M</span><span class="good" style="--i:5" data-m="5" title="June">J</span><span class="good" style="--i:6" data-m="6" title="July">J</span><span class="good" style="--i:7" data-m="7" title="August">A</span><span class="good" style="--i:8" data-m="8" title="September">S</span><span class="best" style="--i:9" data-m="9" title="October">O</span><span class="best" style="--i:10" data-m="10" title="November">N</span><span class="good" style="--i:11" data-m="11" title="December">D</span></div><div class="legend"><span><i class="b"></i>Best months</span><span><i class="g"></i>Good months</span><span><i class="c"></i>This month</span></div></div>
+    
     <p class="rhythm">Most Charleston homes do best with a cleaning in spring and another in fall. Homes on the water or the marsh collect salt faster and often want one every few months.</p>
   </div>
 </section>

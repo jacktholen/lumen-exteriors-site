@@ -883,6 +883,29 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .legend .b{background:#f5b81f}.legend .g{background:#cfe6fa}.legend .c{background:#fff;box-shadow:0 0 0 2px #22252a}
 .rhythm{margin-top:16px;padding:18px 22px;border-radius:18px;background:linear-gradient(135deg,#fff6dc,#eaf5fe);font-weight:600;font-size:1.05rem}
 @media (max-width:560px){.months{gap:4px}.months span{font-size:.7rem;border-radius:7px}.cal{padding:16px 12px}}
+
+/* cleaning plans */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:44px}
+@media (max-width:760px){.plans{grid-template-columns:1fr}}
+.plans-head{margin-top:56px;display:grid;gap:10px;max-width:60ch}
+.plans-head p{color:var(--muted);font-size:1.06rem}
+.plans-head+.plans{margin-top:22px}
+.plan{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px 24px;display:grid;gap:14px;align-content:start;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.plan:hover{transform:translateY(-5px);box-shadow:0 34px 50px -34px rgba(34,37,42,.5)}
+.plan.top{background:linear-gradient(160deg,#22252a,#3a2c0c);color:#fff;border-color:#22252a}
+.plan .tag{justify-self:start;padding:5px 12px;border-radius:999px;background:var(--warm);color:var(--deepamber);font-weight:800;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+.plan.top .tag{background:#ffd35c;color:#221a05}
+.plan h3{font-size:1.7rem}
+.plan p{color:var(--muted)}
+.plan.top p{color:rgba(255,255,255,.8)}
+.visits{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.visits li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:var(--panel);font-weight:600}
+.plan.top .visits li{background:rgba(255,255,255,.08)}
+.visits i{flex:none;width:12px;height:12px;border-radius:50%;background:var(--c)}
+.visits span{margin-left:auto;font-weight:500;font-size:.9rem;color:var(--muted)}
+.plan.top .visits span{color:rgba(255,255,255,.7)}
+.plan .btn{justify-content:center;margin-top:4px}
+.plan:not(.top) .btn-ghost{border-color:var(--led);color:var(--deepamber)}
 </style>
 </head>
 <body>
@@ -927,7 +950,7 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
   </div>
 </header>
 
-<div class="ticker"><div class="tk"><ul><li>Streak-free glass</li><li>Pure-water cleaning</li><li>No ladders on your siding</li><li>Frames and sills included</li><li>Fishers</li><li>Carmel</li><li>Noblesville</li><li>Westfield</li><li>Zionsville</li><li>Charleston, SC</li><li>Talk to the owner directly</li><li>Free quotes by text</li><li>Safe for plants and pets</li></ul><ul aria-hidden="true"><li>Streak-free glass</li><li>Pure-water cleaning</li><li>No ladders on your siding</li><li>Frames and sills included</li><li>Fishers</li><li>Carmel</li><li>Noblesville</li><li>Westfield</li><li>Zionsville</li><li>Charleston, SC</li><li>Talk to the owner directly</li><li>Free quotes by text</li><li>Safe for plants and pets</li></ul></div></div>
+<div class="ticker"><div class="tk"><ul><li>Streak-free glass</li><li>Pure-water cleaning</li><li>No ladders on your siding</li><li>Frames and sills included</li><li>Inside and outside</li><li>Screens and tracks</li><li>Hard water stain removal</li><li>Homes and storefronts</li><li>Talk to the owner directly</li><li>Free quotes by text</li><li>Safe for plants and pets</li></ul><ul aria-hidden="true"><li>Streak-free glass</li><li>Pure-water cleaning</li><li>No ladders on your siding</li><li>Frames and sills included</li><li>Inside and outside</li><li>Screens and tracks</li><li>Hard water stain removal</li><li>Homes and storefronts</li><li>Talk to the owner directly</li><li>Free quotes by text</li><li>Safe for plants and pets</li></ul></div></div>
 
 <section id="area">
   <div class="wrap">

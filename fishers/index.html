@@ -885,6 +885,29 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .rhythm{margin-top:16px;padding:18px 22px;border-radius:18px;background:linear-gradient(135deg,#fff6dc,#eaf5fe);font-weight:600;font-size:1.05rem}
 @media (max-width:560px){.months{gap:4px}.months span{font-size:.7rem;border-radius:7px}.cal{padding:16px 12px}}
 
+/* cleaning plans */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:44px}
+@media (max-width:760px){.plans{grid-template-columns:1fr}}
+.plans-head{margin-top:56px;display:grid;gap:10px;max-width:60ch}
+.plans-head p{color:var(--muted);font-size:1.06rem}
+.plans-head+.plans{margin-top:22px}
+.plan{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px 24px;display:grid;gap:14px;align-content:start;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.plan:hover{transform:translateY(-5px);box-shadow:0 34px 50px -34px rgba(34,37,42,.5)}
+.plan.top{background:linear-gradient(160deg,#22252a,#3a2c0c);color:#fff;border-color:#22252a}
+.plan .tag{justify-self:start;padding:5px 12px;border-radius:999px;background:var(--warm);color:var(--deepamber);font-weight:800;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+.plan.top .tag{background:#ffd35c;color:#221a05}
+.plan h3{font-size:1.7rem}
+.plan p{color:var(--muted)}
+.plan.top p{color:rgba(255,255,255,.8)}
+.visits{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.visits li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:var(--panel);font-weight:600}
+.plan.top .visits li{background:rgba(255,255,255,.08)}
+.visits i{flex:none;width:12px;height:12px;border-radius:50%;background:var(--c)}
+.visits span{margin-left:auto;font-weight:500;font-size:.9rem;color:var(--muted)}
+.plan.top .visits span{color:rgba(255,255,255,.7)}
+.plan .btn{justify-content:center;margin-top:4px}
+.plan:not(.top) .btn-ghost{border-color:var(--led);color:var(--deepamber)}
+
 /* location pages: their own header and color theme */
 .lhero{position:relative;overflow:hidden;isolation:isolate;padding:54px 0 64px;background:var(--hb)}
 .lhero::before{content:"";position:absolute;z-index:-1;width:min(700px,110vw);aspect-ratio:1;right:-16%;top:-30%;border-radius:50%;background:radial-gradient(circle,var(--hg),transparent 68%);animation:drift1 14s ease-in-out infinite alternate}
@@ -972,7 +995,7 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
   </div>
 </header>
 
-<div class="glance"><div class="wrap"><div><small>Home base</small><b>Fishers, Indiana</b></div><div><small>We cover</small><b>8 towns nearby</b></div><div><small>Best months</small><b>Apr, May, Oct, Nov</b></div><div><small>Most homes</small><b>Spring and fall</b></div></div></div>
+<div class="glance"><div class="wrap"><div><small>Home base</small><b>Fishers, Indiana</b></div><div><small>We cover</small><b>8 towns nearby</b></div><div><small>Cleaning windows</small><b>Mar–May · Jul–Aug · Oct–Nov</b></div><div><small>Plans</small><b>2 or 3 cleanings a year</b></div></div></div>
 
 <section id="seasons">
   <div class="wrap">
@@ -981,9 +1004,18 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
       <h2>Fishers windows, season by season</h2>
       <p>Central Indiana throws something different at your glass every few months. Here's what builds up, and when a cleaning does the most good.</p>
     </div>
-    <div class="seasons"><article class="sea sp" data-sea="sp"><span class="nowtag">Right now</span><span class="mo">March to May</span><h3>Spring</h3><dl><div><dt>What builds up</dt><dd>Winter road-salt film and grime, then tree pollen and spring rain spots.</dd></div><div><dt>Best time to clean</dt><dd>Late April through May, once the heaviest tree pollen has dropped.</dd></div></dl></article><article class="sea su" data-sea="su"><span class="nowtag">Right now</span><span class="mo">June to August</span><h3>Summer</h3><dl><div><dt>What builds up</dt><dd>Bugs, cobwebs, storm dust and sprinkler spots on the lower windows.</dd></div><div><dt>Best time to clean</dt><dd>Any dry day. A good time for a mid-year touch-up or hard water spot removal.</dd></div></dl></article><article class="sea fa" data-sea="fa"><span class="nowtag">Right now</span><span class="mo">September to November</span><h3>Fall</h3><dl><div><dt>What builds up</dt><dd>Falling leaves, dust from harvest season and summer's leftover grime.</dd></div><div><dt>Best time to clean</dt><dd>October to mid-November, before the hard freezes and before holiday guests.</dd></div></dl></article><article class="sea wi" data-sea="wi"><span class="nowtag">Right now</span><span class="mo">December to February</span><h3>Winter</h3><dl><div><dt>What builds up</dt><dd>Road-salt spray and snow melt, with a low sun that shows every streak.</dd></div><div><dt>Best time to clean</dt><dd>Inside glass any day. Outside glass on days above freezing.</dd></div></dl></article></div>
-    <div class="cal" id="cal"><h3>Best months for a cleaning in Fishers</h3><div class="months" role="img" aria-label="April, May, October and November are the best months. June through September are good. December through March depend on the weather."><span class="wx" style="--i:0" data-m="0" title="January">J</span><span class="wx" style="--i:1" data-m="1" title="February">F</span><span class="wx" style="--i:2" data-m="2" title="March">M</span><span class="best" style="--i:3" data-m="3" title="April">A</span><span class="best" style="--i:4" data-m="4" title="May">M</span><span class="good" style="--i:5" data-m="5" title="June">J</span><span class="good" style="--i:6" data-m="6" title="July">J</span><span class="good" style="--i:7" data-m="7" title="August">A</span><span class="good" style="--i:8" data-m="8" title="September">S</span><span class="best" style="--i:9" data-m="9" title="October">O</span><span class="best" style="--i:10" data-m="10" title="November">N</span><span class="wx" style="--i:11" data-m="11" title="December">D</span></div><div class="legend"><span><i class="b"></i>Best months</span><span><i class="g"></i>Good months</span><span><i></i>Weather permitting</span><span><i class="c"></i>This month</span></div></div>
-    <p class="rhythm">Most Fishers-area homes do best with two cleanings a year: one in spring and one in fall.</p>
+    <div class="seasons"><article class="sea sp" data-sea="sp"><span class="nowtag">Right now</span><span class="mo">March to May</span><h3>Spring</h3><dl><div><dt>What builds up</dt><dd>Winter road-salt film and grime, then tree pollen and spring rain spots.</dd></div><div><dt>Best time to clean</dt><dd>March through May. This is the first cleaning on both of our plans.</dd></div></dl></article><article class="sea su" data-sea="su"><span class="nowtag">Right now</span><span class="mo">June to August</span><h3>Summer</h3><dl><div><dt>What builds up</dt><dd>Bugs, cobwebs, storm dust and sprinkler spots on the lower windows.</dd></div><div><dt>Best time to clean</dt><dd>July and August. This is the mid-year cleaning on our three-times-a-year plan.</dd></div></dl></article><article class="sea fa" data-sea="fa"><span class="nowtag">Right now</span><span class="mo">September to November</span><h3>Fall</h3><dl><div><dt>What builds up</dt><dd>Falling leaves, dust from harvest season and summer's leftover grime.</dd></div><div><dt>Best time to clean</dt><dd>October and November, before the hard freezes and before holiday guests.</dd></div></dl></article><article class="sea wi" data-sea="wi"><span class="nowtag">Right now</span><span class="mo">December to February</span><h3>Winter</h3><dl><div><dt>What builds up</dt><dd>Road-salt spray and snow melt, with a low sun that shows every streak.</dd></div><div><dt>Best time to clean</dt><dd>Inside glass any day. Outside glass on days above freezing.</dd></div></dl></article></div>
+    <div class="cal" id="cal"><h3>Best months for a cleaning in Fishers</h3><div class="months" role="img" aria-label="March through May, July, August, October and November are the best months. June and September are good. December through February depend on the weather."><span class="wx" style="--i:0" data-m="0" title="January">J</span><span class="wx" style="--i:1" data-m="1" title="February">F</span><span class="best" style="--i:2" data-m="2" title="March">M</span><span class="best" style="--i:3" data-m="3" title="April">A</span><span class="best" style="--i:4" data-m="4" title="May">M</span><span class="good" style="--i:5" data-m="5" title="June">J</span><span class="best" style="--i:6" data-m="6" title="July">J</span><span class="best" style="--i:7" data-m="7" title="August">A</span><span class="good" style="--i:8" data-m="8" title="September">S</span><span class="best" style="--i:9" data-m="9" title="October">O</span><span class="best" style="--i:10" data-m="10" title="November">N</span><span class="wx" style="--i:11" data-m="11" title="December">D</span></div><div class="legend"><span><i class="b"></i>Best months</span><span><i class="g"></i>Good months</span><span><i></i>Weather permitting</span><span><i class="c"></i>This month</span></div></div>
+    <div class="plans-head"><div class="eyebrow">Cleaning plans</div><h3 style="font-size:clamp(1.6rem,3vw,2.2rem)">Keep them clean all year</h3><p>One cleaning looks great for a while. A set schedule keeps your glass clear through every Indiana season, and you never have to remember to book.</p></div>
+    <div class="plans">
+      <article class="plan"><span class="tag">Twice a year</span><h3>Bi-annual plan</h3><p>Two cleanings, timed for the two seasons that hit Fishers glass hardest.</p>
+        <ul class="visits"><li><i style="--c:#5fae6b"></i>Spring cleaning<span>March to May</span></li><li><i style="--c:#e0802e"></i>Fall cleaning<span>October to November</span></li></ul>
+        <a class="btn btn-ghost" href="sms:+14632349179?&body=Hi%20Lumen%20Exteriors!%20I'm%20interested%20in%20the%20twice-a-year%20window%20cleaning%20plan.">Ask about twice a year</a></article>
+      <article class="plan top"><span class="tag">Three times a year</span><h3>Tri-annual plan</h3><p>Adds a summer visit, so your windows never go more than a few months between cleanings.</p>
+        <ul class="visits"><li><i style="--c:#5fae6b"></i>Spring cleaning<span>March to May</span></li><li><i style="--c:#f5b81f"></i>Summer cleaning<span>July to August</span></li><li><i style="--c:#e0802e"></i>Fall cleaning<span>October to November</span></li></ul>
+        <a class="btn btn-led" href="sms:+14632349179?&body=Hi%20Lumen%20Exteriors!%20I'm%20interested%20in%20the%20three-times-a-year%20window%20cleaning%20plan.">Ask about three times a year</a></article>
+    </div>
+    <p class="rhythm">We recommend a set schedule for Fishers-area homes: twice a year in spring and fall, or three times a year with a summer cleaning added.</p>
   </div>
 </section>
 
@@ -1119,7 +1151,7 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
     </div>
     <div class="faq">
 <div class="faq">
-      <details><summary>How often should I have my windows cleaned?</summary><p>Most homes around Fishers look their best with a cleaning in spring and another in fall. Homes near construction, busy roads or lots of trees may want it more often.</p></details>
+      <details><summary>How often should I have my windows cleaned?</summary><p>We recommend two or three cleanings a year. Our bi-annual plan covers spring (March to May) and fall (October to November). Our tri-annual plan adds a summer cleaning in July or August.</p></details>
       <details><summary>Do I need to be home?</summary><p>For exterior-only cleanings, usually not, as long as we can reach the windows. For interior work, someone needs to be home to let us in.</p></details>
       <details><summary>What if it rains after you clean?</summary><p>Rain on clean glass dries much clearer than rain on dirty glass, because there's no dust or film for the water to carry around.</p></details>
       <details><summary>Can you remove hard water stains?</summary><p>Light spotting usually comes off in a normal cleaning. Heavy, long-standing mineral stains can need extra treatment, so mention them when you reach out and we'll take a look.</p></details>
