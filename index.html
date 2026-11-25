@@ -834,6 +834,22 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .flow .st:nth-child(n+3)::before{background:var(--sky2)}
 .lvl{justify-self:start;margin-top:6px;padding:5px 11px;border-radius:999px;font-weight:700;font-size:.82rem;background:var(--warm);color:var(--deepamber)}
 .flow .st:nth-child(n+3) .lvl{background:var(--skyl);color:var(--sky)}
+
+/* locations */
+.locs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.locs{grid-template-columns:1fr}}
+.loc{position:relative;overflow:hidden;display:grid;gap:10px;align-content:start;padding:clamp(24px,4vw,40px);border-radius:26px;text-decoration:none;background:linear-gradient(140deg,#fff6dc,#fffdf6);border:1px solid #f3e2b0;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.loc.sc{background:linear-gradient(140deg,#eaf5fe,#f8fcff);border-color:#d5e8f8}
+.loc:hover{transform:translateY(-5px);box-shadow:0 34px 50px -34px rgba(34,37,42,.5)}
+.loc h3{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+.loc p{color:var(--muted)}
+.loc .go{font-weight:800;color:var(--deepamber);margin-top:6px}
+.loc.sc .go{color:var(--sky)}
+.loc::after{content:"";position:absolute;right:-60px;top:-60px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(245,184,31,.4),rgba(245,184,31,0) 70%);animation:drift2 9s ease-in-out infinite alternate}
+.loc.sc::after{background:radial-gradient(circle,rgba(90,174,234,.4),rgba(90,174,234,0) 70%)}
+.lede a,.floc a{color:inherit;font-weight:700;text-decoration:underline;text-decoration-color:var(--led);text-decoration-thickness:2px;text-underline-offset:3px}
+.areacard{display:grid;gap:12px;align-content:center;padding:clamp(24px,4vw,40px);border-radius:26px;background:linear-gradient(140deg,#eaf5fe,#f8fcff);border:1px solid #d5e8f8}
+.areacard p{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -854,6 +870,7 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
       <li><a href="#work">Our work</a></li>
       <li><a href="#quote">Free quote</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#area">Locations</a></li>
     </ul>
     <a class="btn btn-led" href="tel:+14632349179">(463) 234-9179</a>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navList"><span></span><span></span><span></span></button>
@@ -865,7 +882,7 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
   <div class="wrap">
     <div class="eyebrow">Pure-water window cleaning</div>
     <h1 aria-label="Glass that gleams. Views that sparkle."><span aria-hidden="true"><span class="gl1">Glass that <span class="gD" data-t="gleams.">gleams.</span></span><br><span class="rot"><span>Views that sparkle.</span><span>Homes that shine.</span><span>Streak-free, always.</span></span></span></h1>
-    <p class="lede">Lumen Exteriors, keeping homes bright around Fishers, Indiana and Charleston, South Carolina.</p>
+    <p class="lede">Lumen Exteriors, keeping homes bright around <a href="fishers/">Fishers, Indiana</a> and <a href="charleston/">Charleston, South Carolina</a>.</p>
     <div class="hero-ctas">
       <a class="btn btn-led" href="tel:+14632349179">Call or text (463) 234-9179</a>
       <a class="btn btn-ghost" href="#quote">Get a free quote</a>
@@ -1052,42 +1069,15 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 </section>
 
 <section id="area" style="padding-top:0">
-  <div class="wrap area">
-    <div>
-      <div class="sec-head" style="margin-bottom:0">
-        <div class="eyebrow">Service area</div>
-        <h2>Two home bases: Fishers and Charleston</h2>
-        <p>Lumen has a branch in Fishers, Indiana and a branch in Charleston, South Carolina, and each one covers the towns around it. Not sure if you're in range? Just call or text.</p>
-      </div>
-      <h3 class="branch">Indiana</h3>
-      <ul class="townlist">
-        <li class="home">Fishers (home base)</li><li>Carmel</li><li>Westfield</li><li>Zionsville</li><li>Noblesville</li><li>Geist</li><li>McCordsville</li><li>North Indianapolis</li>
-      </ul>
-      <h3 class="branch">South Carolina</h3>
-      <ul class="townlist">
-        <li class="home">Charleston (home base)</li><li>Nearby Lowcountry communities</li>
-      </ul>
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">Locations</div>
+      <h2>Two home bases: Fishers and Charleston</h2>
+      <p>Lumen has a branch in Fishers, Indiana and a branch in Charleston, South Carolina. Pick yours for local details.</p>
     </div>
-    <div class="map">
-      <svg viewBox="0 0 420 320" role="img" aria-label="Map showing Fishers at the center with Carmel, Westfield, Zionsville, Noblesville and nearby towns around it">
-        <defs><radialGradient id="reach" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#f2ae1c" stop-opacity=".22"/><stop offset="1" stop-color="#f2ae1c" stop-opacity="0"/></radialGradient></defs>
-        <rect width="420" height="320" rx="12" fill="#faf8f3"/>
-        <g stroke="#ece8dd" stroke-width="1"><path d="M0 80H420M0 160H420M0 240H420M105 0V320M210 0V320M315 0V320"/></g>
-        <path d="M150 320 C170 250 200 210 230 170 S290 90 300 0" stroke="#dfe7ea" stroke-width="6" fill="none"/>
-        <path d="M0 210 C120 200 220 190 420 120" stroke="#ffffff" stroke-width="5" fill="none"/>
-        <circle cx="250" cy="170" r="150" fill="url(#reach)"/>
-        <circle cx="250" cy="170" r="110" fill="none" stroke="#f2ae1c" stroke-opacity=".5" stroke-dasharray="3 7"/>
-        <g font-family="Figtree, sans-serif" font-size="13" font-weight="600" fill="#22252a">
-          <circle cx="250" cy="170" r="7" fill="none" stroke="#f2ae1c" stroke-width="2"><animate attributeName="r" values="7;34" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="2.4s" repeatCount="indefinite"/></circle><circle cx="250" cy="170" r="7" fill="#f2ae1c"/><text x="262" y="175" fill="#8f6200" font-size="15" font-weight="800">Fishers</text>
-          <circle cx="175" cy="160" r="4.5" fill="#8a9099"/><text x="122" y="152">Carmel</text>
-          <circle cx="170" cy="85" r="4.5" fill="#8a9099"/><text x="112" y="78">Westfield</text>
-          <circle cx="70" cy="175" r="4.5" fill="#8a9099"/><text x="34" y="200">Zionsville</text>
-          <circle cx="272" cy="78" r="4.5" fill="#8a9099"/><text x="282" y="72">Noblesville</text>
-          <circle cx="305" cy="225" r="4.5" fill="#8a9099"/><text x="315" y="230">Geist</text>
-          <circle cx="345" cy="265" r="4.5" fill="#8a9099"/><text x="290" y="290">McCordsville</text>
-          <circle cx="175" cy="270" r="4.5" fill="#8a9099"/><text x="80" y="292">North Indianapolis</text>
-        </g>
-      </svg>
+    <div class="locs">
+      <a class="loc" href="fishers/"><div class="eyebrow">Indiana</div><h3>Fishers</h3><p>Fishers, Carmel, Westfield, Zionsville, Noblesville, Geist, McCordsville and North Indianapolis.</p><span class="go">Fishers window cleaning →</span></a>
+      <a class="loc sc" href="charleston/"><div class="eyebrow day">South Carolina</div><h3>Charleston</h3><p>Charleston and the Lowcountry communities around it.</p><span class="go">Charleston window cleaning →</span></a>
     </div>
   </div>
 </section>
@@ -1116,7 +1106,7 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 <footer>
   <img class="flogo" src="work/lumen-logo.png" alt="Lumen Exteriors logo" loading="lazy" width="132" height="132">
   <div class="wrap">
-    <span>© <span id="yr">2026</span> Lumen Exteriors LLC · Fishers, Indiana · Charleston, South Carolina</span>
+    <span>© <span id="yr">2026</span> Lumen Exteriors LLC · <span class="floc"><a href="fishers/">Fishers, Indiana</a> · <a href="charleston/">Charleston, South Carolina</a></span></span>
     <span>Pure-water window cleaning</span>
   </div>
 </footer>
