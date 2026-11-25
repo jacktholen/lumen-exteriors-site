@@ -942,6 +942,15 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 @media (max-width:560px){.yr-m span{font-size:.62rem;letter-spacing:0}.yr-b{height:52px}.yr-b a{font-size:.68rem;margin:5px 2px;border-radius:9px}.yr{padding:14px 10px 34px}}
 .yr{padding-bottom:44px}
 
+/* year-round bar: the seasons blend into each other */
+.yr-b{position:relative;background:linear-gradient(90deg,#a9dcf7 0%,#a9dcf7 12%,#4fa35c 22%,#4fa35c 38%,#f5b81f 47%,#f5b81f 63%,#e0802e 72%,#e0802e 87%,#a9dcf7 96%,#a9dcf7 100%);clip-path:inset(0 100% 0 0 round 16px)}
+.yr.in .yr-b{clip-path:inset(0 0 0 0 round 16px);transition:clip-path 1.8s cubic-bezier(.5,0,.2,1)}
+.yr-b::after{content:"";position:absolute;top:0;bottom:0;width:22%;left:-30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:yrshine 6s ease-in-out infinite}
+@keyframes yrshine{0%,40%{left:-30%}100%{left:120%}}
+.yr-b a,.yr.in .yr-b a{background:none;box-shadow:none;transform:none;margin:0;border-radius:0;transition:none}
+.wi{--c:#a9dcf7;--t:#123a5c;--ct:#1f6fc4;--cb:#eaf5fe}
+@media (max-width:1100px) and (min-width:861px){.wins{grid-template-columns:1fr 1fr}}
+
 /* location pages: their own header and color theme */
 .lhero{position:relative;overflow:hidden;isolation:isolate;padding:54px 0 64px;background:var(--hb)}
 .lhero::before{content:"";position:absolute;z-index:-1;width:min(700px,110vw);aspect-ratio:1;right:-16%;top:-30%;border-radius:50%;background:radial-gradient(circle,var(--hg),transparent 68%);animation:drift1 14s ease-in-out infinite alternate}
@@ -1035,12 +1044,12 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow day">When to clean</div>
-      <h2>The best times of year to clean in Charleston</h2>
-      <p>Two stretches of the year do the most good for Lowcountry glass: after the spring pollen, and after storm season.</p>
+      <h2>Clean windows all year in Charleston</h2>
+      <p>Lowcountry glass gets something new in every season. The two cleanings that matter most come after the spring pollen and after storm season.</p>
     </div>
-    <div class="yr" id="yrline" role="img" aria-label="Cleaning times: Spring cleaning April – May, Fall cleaning October – November"><div class="yr-m" aria-hidden="true"><span class="">Jan</span><span class="">Feb</span><span class="">Mar</span><span class="on">Apr</span><span class="on">May</span><span class="">Jun</span><span class="">Jul</span><span class="">Aug</span><span class="">Sep</span><span class="on">Oct</span><span class="on">Nov</span><span class="">Dec</span></div><div class="yr-track"><div class="yr-b"><a class="sp" href="#win-sp" style="grid-column:4/6;--i:0">Spring</a><a class="fa" href="#win-fa" style="grid-column:10/12;--i:1">Fall</a></div><i class="yr-now" id="yrNow"></i></div></div>
-    <div class="wins" style="--n:2"><article class="win sp" id="win-sp" data-a="3" data-b="4"><div class="win-top"><span class="state"></span><small>Spring cleaning</small><b>April – May</b></div><div class="win-body"><p>Washes off the yellow pine and oak pollen once the heavy drop has settled.</p><span class="chip">Recommended for every home</span></div></article><article class="win fa" id="win-fa" data-a="9" data-b="10"><div class="win-top"><span class="state"></span><small>Fall cleaning</small><b>October – November</b></div><div class="win-body"><p>Clears salt, wind-blown debris and rain spotting once storm season winds down, before the holidays.</p><span class="chip">Recommended for every home</span></div></article></div>
-    <p class="offnote">The rest of the year works too: winters are mild, and summer mornings beat the heat and the afternoon storms. Homes on the water or the marsh collect salt faster and often want a cleaning every few months.</p>
+    <div class="yr" id="yrline" role="img" aria-label="Cleaning times: Spring cleaning April – May, Summer cleaning June – August, Fall cleaning October – November, Winter cleaning December – February"><div class="yr-m" aria-hidden="true"><span class="on">Jan</span><span class="on">Feb</span><span class="on">Mar</span><span class="on">Apr</span><span class="on">May</span><span class="on">Jun</span><span class="on">Jul</span><span class="on">Aug</span><span class="on">Sep</span><span class="on">Oct</span><span class="on">Nov</span><span class="on">Dec</span></div><div class="yr-track"><div class="yr-b"><a href="#win-wi" style="grid-column:1/3;--t:#123a5c">Winter</a><a href="#win-sp" style="grid-column:3/6">Spring</a><a href="#win-su" style="grid-column:6/9;--t:#221a05">Summer</a><a href="#win-fa" style="grid-column:9/12">Fall</a></div><i class="yr-now" id="yrNow"></i></div></div>
+    <div class="wins" style="--n:4"><article class="win sp" id="win-sp" data-a="3" data-b="4"><div class="win-top"><span class="state"></span><small>Spring cleaning</small><b>April – May</b></div><div class="win-body"><p>Washes off the yellow pine and oak pollen once the heavy drop has settled.</p><span class="chip">Recommended for every home</span></div></article><article class="win su" id="win-su" data-a="5" data-b="7"><div class="win-top"><span class="state"></span><small>Summer cleaning</small><b>June – August</b></div><div class="win-body"><p>Rinses off humidity film, storm spotting and the mildew that starts on frames and sills. Mornings beat the heat.</p><span class="chip">A good time for a rinse</span></div></article><article class="win fa" id="win-fa" data-a="9" data-b="10"><div class="win-top"><span class="state"></span><small>Fall cleaning</small><b>October – November</b></div><div class="win-body"><p>Clears salt, wind-blown debris and rain spotting once storm season winds down, before the holidays.</p><span class="chip">Recommended for every home</span></div></article><article class="win wi" id="win-wi" data-a="11" data-b="1"><div class="win-top"><span class="state"></span><small>Winter cleaning</small><b>December – February</b></div><div class="win-body"><p>Clears salt film and light dust. Winters here are mild enough for outside glass.</p><span class="chip">A good time for a rinse</span></div></article></div>
+    <p class="offnote">Homes on the water or the marsh collect salt faster and often want a cleaning every few months.</p>
     
   </div>
 </section>
@@ -1446,7 +1455,7 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
   var d=new Date(), m=d.getMonth(), dim=new Date(d.getFullYear(),m+1,0).getDate();
   var now=document.getElementById('yrNow'); if(now) now.style.setProperty('--x',((m+(d.getDate()-.5)/dim)/12*100).toFixed(2)+'%');
   var wins=[].slice.call(document.querySelectorAll('.win')), cur=null, next=null, best=99;
-  wins.forEach(function(w){ var a=+w.dataset.a,b=+w.dataset.b; if(m>=a&&m<=b) cur=w; var gap=(a-m+12)%12; if(gap>0&&gap<best){ best=gap; next=w; } });
+  wins.forEach(function(w){ var a=+w.dataset.a,b=+w.dataset.b; if(a<=b?(m>=a&&m<=b):(m>=a||m<=b)) cur=w; var gap=(a-m+12)%12; if(gap>0&&gap<best){ best=gap; next=w; } });
   var pick=cur||next; if(pick){ pick.classList.add(cur?'now':'next'); pick.querySelector('.state').textContent=cur?'Booking now':'Up next'; }
   var s=document.getElementById('nowS'); if(s&&pick){ s.textContent=(cur?'Right now: ':'Up next: ')+pick.querySelector('small').textContent; document.getElementById('nowT').textContent=pick.querySelector('b').textContent; document.getElementById('nowB').textContent=pick.querySelector('p').textContent; }
   var yr=document.getElementById('yrline'); if(!yr) return;

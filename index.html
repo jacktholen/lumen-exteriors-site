@@ -940,6 +940,15 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .offnote{margin-top:14px;padding:16px 20px;border-radius:16px;background:var(--skyl);color:#1d4f86;font-weight:600}
 @media (max-width:560px){.yr-m span{font-size:.62rem;letter-spacing:0}.yr-b{height:52px}.yr-b a{font-size:.68rem;margin:5px 2px;border-radius:9px}.yr{padding:14px 10px 34px}}
 .yr{padding-bottom:44px}
+
+/* year-round bar: the seasons blend into each other */
+.yr-b{position:relative;background:linear-gradient(90deg,#a9dcf7 0%,#a9dcf7 12%,#4fa35c 22%,#4fa35c 38%,#f5b81f 47%,#f5b81f 63%,#e0802e 72%,#e0802e 87%,#a9dcf7 96%,#a9dcf7 100%);clip-path:inset(0 100% 0 0 round 16px)}
+.yr.in .yr-b{clip-path:inset(0 0 0 0 round 16px);transition:clip-path 1.8s cubic-bezier(.5,0,.2,1)}
+.yr-b::after{content:"";position:absolute;top:0;bottom:0;width:22%;left:-30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:yrshine 6s ease-in-out infinite}
+@keyframes yrshine{0%,40%{left:-30%}100%{left:120%}}
+.yr-b a,.yr.in .yr-b a{background:none;box-shadow:none;transform:none;margin:0;border-radius:0;transition:none}
+.wi{--c:#a9dcf7;--t:#123a5c;--ct:#1f6fc4;--cb:#eaf5fe}
+@media (max-width:1100px) and (min-width:861px){.wins{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
