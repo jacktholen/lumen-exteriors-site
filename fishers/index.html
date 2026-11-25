@@ -884,9 +884,50 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .legend .b{background:#f5b81f}.legend .g{background:#cfe6fa}.legend .c{background:#fff;box-shadow:0 0 0 2px #22252a}
 .rhythm{margin-top:16px;padding:18px 22px;border-radius:18px;background:linear-gradient(135deg,#fff6dc,#eaf5fe);font-weight:600;font-size:1.05rem}
 @media (max-width:560px){.months{gap:4px}.months span{font-size:.7rem;border-radius:7px}.cal{padding:16px 12px}}
+
+/* location pages: their own header and color theme */
+.lhero{position:relative;overflow:hidden;isolation:isolate;padding:54px 0 64px;background:var(--hb)}
+.lhero::before{content:"";position:absolute;z-index:-1;width:min(700px,110vw);aspect-ratio:1;right:-16%;top:-30%;border-radius:50%;background:radial-gradient(circle,var(--hg),transparent 68%);animation:drift1 14s ease-in-out infinite alternate}
+.lhero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:center}
+.crumb{font-size:.86rem;font-weight:600;color:var(--hm);margin-bottom:18px}
+.crumb a{color:inherit}
+.lhero h1{font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:1.02;color:var(--ht)}
+.lhero h1 .city{display:block;font-size:1.5em;letter-spacing:-.03em;background:var(--hc);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.08em;animation:rise 1s .15s cubic-bezier(.2,.7,.2,1) both}
+.lhero .lede{color:var(--hm);max-width:46ch;margin-top:18px}
+.lhero .eyebrow{background:var(--he);color:var(--hec);margin-bottom:14px}
+.lhero .btn-ghost{background:transparent;border-color:var(--hgb);color:var(--ht)}
+.lhero .btn-ghost:hover{background:transparent;border-color:var(--ht);color:var(--ht)}
+.lphoto{position:relative;animation:rise 1s .2s cubic-bezier(.2,.7,.2,1) both}
+.lphoto img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:28px;border:5px solid #fff;rotate:2deg;box-shadow:0 40px 70px -40px rgba(0,0,0,.6)}
+.nowcard{position:absolute;left:-18px;bottom:26px;max-width:270px;background:#fff;color:var(--ink);border-radius:18px;padding:14px 16px;display:grid;gap:4px;box-shadow:0 26px 44px -22px rgba(0,0,0,.55);animation:floaty 6s ease-in-out infinite}
+.nowcard b{font-family:var(--display);font-size:1.1rem}
+.nowcard small{font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--nc)}
+.nowcard span{font-size:.9rem;color:var(--muted)}
+.lhero.fish{--hb:linear-gradient(160deg,#ffe9a8 0%,#fff6dc 45%,#fff 100%);--hg:rgba(245,184,31,.5);--ht:#22252a;--hm:#5c5547;--hc:linear-gradient(120deg,#c98a00,#f5b81f 55%,#e0802e);--he:#fff;--hec:#8f6200;--hgb:#d9c48a;--nc:#a3520f}
+.lhero.chs{--hb:linear-gradient(160deg,#0f2a47 0%,#17497c 55%,#2f8fd0 130%);--hg:rgba(120,200,255,.4);--ht:#fff;--hm:rgba(255,255,255,.82);--hc:linear-gradient(120deg,#bfe6ff,#7cc4f2 50%,#ffd35c);--he:rgba(255,255,255,.14);--hec:#bfe6ff;--hgb:rgba(255,255,255,.45);--nc:#1f6fc4}
+.glance{background:var(--gb);color:var(--gt)}
+.glance .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.glance div{padding:22px 18px;border-left:1px solid var(--gl)}
+.glance div:first-child{border-left:0;padding-left:0}
+.glance small{display:block;font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.glance b{font-family:var(--display);font-size:1.12rem}
+body.fish .glance{--gb:#22252a;--gt:#fff;--gl:rgba(255,255,255,.14)}
+body.fish .glance small{color:#ffd35c;opacity:1}
+body.chs .glance{--gb:#ffd35c;--gt:#221a05;--gl:rgba(34,26,5,.16)}
+body.chs .promo{background:#0f2a47;color:#fff;animation:none}
+body.chs .promo .tagp{background:#ffd35c;color:#221a05}
+body.chs .nav::after{background:linear-gradient(90deg,#7cc4f2,#1f6fc4)}
+body.fish .nav::after{background:linear-gradient(90deg,#ffd35c,#e0802e)}
+body.chs .eyebrow:not(.day){background:var(--skyl);color:var(--sky)}
+body.chs .dayband{background:linear-gradient(180deg,#e3f1fc,#f7fbff 55%,#fff)}
+body.fish .dayband{background:linear-gradient(180deg,#fff6dc,#fffdf6 55%,#fff)}
+body.fish .eyebrow.day{background:var(--warm);color:var(--deepamber)}
+body.chs .contact-band::before{background:linear-gradient(100deg,rgba(10,30,54,.96) 0%,rgba(23,73,124,.86) 55%,rgba(47,143,208,.55) 100%)}
+body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,.95) 0%,rgba(70,48,8,.8) 55%,rgba(224,128,46,.45) 100%)}
+@media (max-width:860px){.lhero{padding:34px 0 44px}.lhero .wrap{grid-template-columns:1fr}.lphoto img{aspect-ratio:4/3;rotate:1.2deg}.nowcard{left:10px;bottom:-18px}.glance .wrap{grid-template-columns:1fr 1fr}.glance div{padding:14px 12px}.glance div:nth-child(odd){border-left:0;padding-left:0}.glance div:nth-child(n+3){border-top:1px solid var(--gl)}}
 </style>
 </head>
-<body>
+<body class="fish">
 
 <div class="spot" id="spot" aria-hidden="true"></div>
 <div class="promo" id="promo" role="region" aria-label="Current offers">
@@ -901,10 +942,10 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
     <a class="brand" href="../" aria-label="Lumen Exteriors home"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="8.2" fill="#e8a51a"/><g stroke="#e8a51a" stroke-width="2.4" stroke-linecap="round"><path d="M20 3.5v6M20 30.5v6M3.5 20h6M30.5 20h6M8.3 8.3l4.3 4.3M27.4 27.4l4.3 4.3M8.3 31.7l4.3-4.3M27.4 12.6l4.3-4.3"/></g></svg><span class="wm"><b>LUMEN</b><small>EXTERIORS</small></span></a>
     <ul id="navList">
       <li><a href="#seasons">Seasons</a></li>
+      <li><a href="#quote">Prices and quote</a></li>
       <li><a href="#windows">How it's done</a></li>
       <li><a href="#work">Our work</a></li>
-      <li><a href="#quote">Free quote</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="../#about">About Jack</a></li>
       <li><a href="../charleston/">Charleston, SC</a></li>
     </ul>
     <a class="btn btn-led" href="tel:+14632349179">(463) 234-9179</a>
@@ -912,25 +953,26 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
   </div>
 </nav>
 
-<header class="hero3" id="top">
-<div class="bubbles" aria-hidden="true"><i style="--x:4%;--s:22px;--d:14s;--dl:-2s"></i><i style="--x:11%;--s:12px;--d:11s;--dl:-7s"></i><i style="--x:19%;--s:30px;--d:17s;--dl:-11s"></i><i style="--x:28%;--s:14px;--d:12s;--dl:-4s"></i><i style="--x:39%;--s:20px;--d:15s;--dl:-9s"></i><i style="--x:50%;--s:11px;--d:10s;--dl:-1s"></i><i style="--x:58%;--s:26px;--d:16s;--dl:-13s"></i><i style="--x:67%;--s:15px;--d:12s;--dl:-6s"></i><i style="--x:76%;--s:34px;--d:18s;--dl:-3s"></i><i style="--x:84%;--s:13px;--d:11s;--dl:-8s"></i><i style="--x:91%;--s:24px;--d:15s;--dl:-12s"></i><i style="--x:97%;--s:16px;--d:13s;--dl:-5s"></i></div>
+<header class="lhero fish" id="top">
   <div class="wrap">
-    <div class="eyebrow">Window cleaning · Fishers, Indiana</div>
-    <h1 aria-label="Glass that gleams. Views that sparkle."><span aria-hidden="true"><span class="gl1">Glass that <span class="gD" data-t="gleams.">gleams.</span></span><br><span class="rot"><span>Views that sparkle.</span><span>Homes that shine.</span><span>Streak-free, always.</span></span></span></h1>
-    <p class="lede">Lumen Exteriors, keeping homes bright in Fishers, Noblesville, Carmel, Westfield, Zionsville and nearby.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-led" href="tel:+14632349179">Call or text (463) 234-9179</a>
-      <a class="btn btn-ghost" href="#quote">Get a free quote</a>
+    <div>
+      <div class="crumb"><a href="../">Lumen Exteriors</a> &nbsp;/&nbsp; Indiana</div>
+      <div class="eyebrow">Local window cleaning</div>
+      <h1>Window cleaning in <span class="city">Fishers</span></h1>
+      <p class="lede">Pure-water window cleaning for Fishers, Noblesville, Carmel, Westfield, Zionsville and the towns nearby, timed to Indiana's seasons.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-led" href="tel:+14632349179">Call or text (463) 234-9179</a>
+        <a class="btn btn-ghost" href="#quote">Get a free quote</a>
+      </div>
     </div>
-    <div class="h3trio">
-      <img width="820" height="1093" src="../work/arched-lakefront-sm.jpg" alt="Lakefront home with tall arched windows, freshly cleaned" style="object-position:50% 62%">
-      <img width="820" height="1093" src="../work/modern-entry-sm.jpg" alt="Modern entry with floor-to-ceiling glass, freshly cleaned" style="object-position:50% 45%">
-      <img width="820" height="1093" src="../work/lakefront-sm.jpg" alt="Three-story lakefront home with clean windows on every level" style="object-position:50% 45%">
+    <div class="lphoto">
+      <img width="820" height="1093" src="../work/brick-two-story-sm.jpg" alt="Two-story brick home with freshly cleaned windows" style="object-position:50% 35%">
+      <a class="nowcard" href="#seasons" style="text-decoration:none"><small id="nowS">This season</small><b id="nowT">When to clean</b><span id="nowB">See the best times of year for Fishers windows.</span></a>
     </div>
   </div>
 </header>
 
-<div class="ticker"><div class="tk"><ul><li>Streak-free glass</li><li>Pure-water cleaning</li><li>No ladders on your siding</li><li>Frames and sills included</li><li>Fishers</li><li>Carmel</li><li>Noblesville</li><li>Westfield</li><li>Zionsville</li><li>Geist</li><li>Talk to the owner directly</li><li>Free quotes by text</li><li>Safe for plants and pets</li></ul><ul aria-hidden="true"><li>Streak-free glass</li><li>Pure-water cleaning</li><li>No ladders on your siding</li><li>Frames and sills included</li><li>Fishers</li><li>Carmel</li><li>Noblesville</li><li>Westfield</li><li>Zionsville</li><li>Geist</li><li>Talk to the owner directly</li><li>Free quotes by text</li><li>Safe for plants and pets</li></ul></div></div>
+<div class="glance"><div class="wrap"><div><small>Home base</small><b>Fishers, Indiana</b></div><div><small>We cover</small><b>8 towns nearby</b></div><div><small>Best months</small><b>Apr, May, Oct, Nov</b></div><div><small>Most homes</small><b>Spring and fall</b></div></div></div>
 
 <section id="seasons">
   <div class="wrap">
@@ -942,6 +984,51 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
     <div class="seasons"><article class="sea sp" data-sea="sp"><span class="nowtag">Right now</span><span class="mo">March to May</span><h3>Spring</h3><dl><div><dt>What builds up</dt><dd>Winter road-salt film and grime, then tree pollen and spring rain spots.</dd></div><div><dt>Best time to clean</dt><dd>Late April through May, once the heaviest tree pollen has dropped.</dd></div></dl></article><article class="sea su" data-sea="su"><span class="nowtag">Right now</span><span class="mo">June to August</span><h3>Summer</h3><dl><div><dt>What builds up</dt><dd>Bugs, cobwebs, storm dust and sprinkler spots on the lower windows.</dd></div><div><dt>Best time to clean</dt><dd>Any dry day. A good time for a mid-year touch-up or hard water spot removal.</dd></div></dl></article><article class="sea fa" data-sea="fa"><span class="nowtag">Right now</span><span class="mo">September to November</span><h3>Fall</h3><dl><div><dt>What builds up</dt><dd>Falling leaves, dust from harvest season and summer's leftover grime.</dd></div><div><dt>Best time to clean</dt><dd>October to mid-November, before the hard freezes and before holiday guests.</dd></div></dl></article><article class="sea wi" data-sea="wi"><span class="nowtag">Right now</span><span class="mo">December to February</span><h3>Winter</h3><dl><div><dt>What builds up</dt><dd>Road-salt spray and snow melt, with a low sun that shows every streak.</dd></div><div><dt>Best time to clean</dt><dd>Inside glass any day. Outside glass on days above freezing.</dd></div></dl></article></div>
     <div class="cal" id="cal"><h3>Best months for a cleaning in Fishers</h3><div class="months" role="img" aria-label="April, May, October and November are the best months. June through September are good. December through March depend on the weather."><span class="wx" style="--i:0" data-m="0" title="January">J</span><span class="wx" style="--i:1" data-m="1" title="February">F</span><span class="wx" style="--i:2" data-m="2" title="March">M</span><span class="best" style="--i:3" data-m="3" title="April">A</span><span class="best" style="--i:4" data-m="4" title="May">M</span><span class="good" style="--i:5" data-m="5" title="June">J</span><span class="good" style="--i:6" data-m="6" title="July">J</span><span class="good" style="--i:7" data-m="7" title="August">A</span><span class="good" style="--i:8" data-m="8" title="September">S</span><span class="best" style="--i:9" data-m="9" title="October">O</span><span class="best" style="--i:10" data-m="10" title="November">N</span><span class="wx" style="--i:11" data-m="11" title="December">D</span></div><div class="legend"><span><i class="b"></i>Best months</span><span><i class="g"></i>Good months</span><span><i></i>Weather permitting</span><span><i class="c"></i>This month</span></div></div>
     <p class="rhythm">Most Fishers-area homes do best with two cleanings a year: one in spring and one in fall.</p>
+  </div>
+</section>
+
+<section id="quote" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">Pricing and free quote</div>
+      <h2>Simple pricing. Your estimate in a minute.</h2>
+      <p>Here's what we charge per pane. Use the estimator below to see a price range for your home, then text it to us and we'll confirm the exact price.</p>
+    </div>
+    <div class="prices">
+      <article><span class="pk">Window cleaning</span><h3>Outside only</h3><div class="pp">$6–$8 <small>per pane</small></div></article>
+      <article><span class="pk">Window cleaning</span><h3>Inside and outside</h3><div class="pp">$12–$14 <small>per pane</small></div></article>
+    </div>
+    <p class="pnote">Screens, very dirty tracks and hard water removal are extra and priced when we see the windows.</p>
+    <div class="q">
+      <div class="qform">
+        <fieldset id="qWin">
+          <legend>Window cleaning</legend>
+          <div class="qrow"><span class="ql">What should we clean?</span>
+            <div class="qseg" role="group" aria-label="Inside or outside">
+              <button type="button" data-side="ext" aria-pressed="true"><b>Outside only</b><span>$6 to $8 per pane</span></button>
+              <button type="button" data-side="both" aria-pressed="false"><b>Inside and outside</b><span>$12 to $14 per pane</span></button>
+            </div></div>
+          <div class="qrow"><label class="ql" for="qPanes">How many panes of glass?</label>
+            <div class="qnum"><button type="button" data-step="qPanes" data-d="-1" aria-label="Fewer panes">−</button><input id="qPanes" type="number" inputmode="numeric" min="0" max="500" value="30"><button type="button" data-step="qPanes" data-d="1" aria-label="More panes">+</button></div>
+            <p class="qhelp">A pane is one piece of glass. A window that slides up and down usually has two. A rough count is fine.</p></div>
+          <div class="qrow"><span class="ql">Any extras? <em>Priced when we see the windows</em></span>
+            <div class="qchecks">
+              <label><input type="checkbox" id="qScreens"> Screen cleaning</label>
+              <label><input type="checkbox" id="qTracks"> Deep clean of very dirty tracks</label>
+              <label><input type="checkbox" id="qHard"> Hard water stain removal</label>
+            </div></div>
+        </fieldset>
+      </div>
+      <aside class="qout" aria-live="polite">
+        <div class="eyebrow">Your estimate</div>
+        <div class="qtotal" id="qTotal">$180 to $240</div>
+        <ul class="qlines" id="qLines"></ul>
+        <p class="qnote" id="qNote"></p>
+        <a class="btn btn-led" id="qSms" href="sms:+14632349179">Text us this estimate</a>
+        <a class="btn btn-ghost" id="qMail" href="mailto:lumenexteriorsllc@gmail.com">Email it instead</a>
+        <p class="qfine">This is an estimate, not a final price. We confirm the exact price after we see your home. Call or text (463) 234-9179.</p>
+      </aside>
+    </div>
   </div>
 </section>
 
@@ -994,19 +1081,7 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
   </div>
 </section>
 
-<section style="padding-top:20px">
-  <div class="wrap vgrid">
-    <div class="phone"><video width="720" height="1280" src="../work/storefront.mp4" poster="../work/storefront-poster.jpg" muted loop playsinline preload="none" data-auto aria-label="Video walkthrough of freshly cleaned commercial glass at golden hour"></video></div>
-    <div class="vtext">
-      <div class="eyebrow day">On the job</div>
-      <h2>Clean glass at golden hour</h2>
-      <p>A walk past a commercial building right after a cleaning. Clear glass from the roofline down to the entry doors.</p>
-      <div><a class="btn btn-led" href="tel:+14632349179">Get a commercial quote</a></div>
-    </div>
-  </div>
-</section>
-
-<section id="work" style="padding-top:0">
+<section id="work">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Our work</div>
@@ -1032,68 +1107,6 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
       <button class="tile" data-w="15" aria-label="Open: Side windows, both levels"><img width="820" height="1093" src="../work/brick-side-sm.jpg" alt="Side windows, both levels" loading="lazy"><span class="wcap">Side windows, both levels</span></button>
       <button class="tile" data-w="16" aria-label="Open: Bay windows, two stories"><img width="820" height="1093" src="../work/bay-windows-sm.jpg" alt="Bay windows, two stories" loading="lazy"><span class="wcap">Bay windows, two stories</span></button>
       <button class="tile" data-w="17" aria-label="Open: Pure-water pole system"><img width="619" height="1100" src="../work/pure-water-pole-sm.jpg" alt="Pure-water pole system" loading="lazy"><span class="wcap">Pure-water pole system</span></button>
-    </div>
-  </div>
-</section>
-
-<section id="about" style="padding-top:0">
-  <div class="wrap">
-    <div class="about">
-      <div class="aphotos two"><div class="aphoto"><img width="643" height="1100" src="../work/jack-sm.jpg" alt="Jack Tholen, owner of Lumen Exteriors, on a job" loading="lazy"></div><div class="aphoto"><img width="643" height="1100" src="../work/jack-on-the-job-sm.jpg" alt="Jack's car and pure-water cart in a customer's driveway" loading="lazy"></div></div>
-      <div class="atext">
-        <div class="eyebrow">Meet the owner</div>
-        <h2>Hi, I'm Jack. I love clean windows.</h2>
-        <p>I'm Jack Tholen, and I started Lumen Exteriors in 2023 because I found a love for helping others and for cleaning windows. As funny as it sounds, I love clean windows. I'm sure you do too. That's why you're here.</p>
-        <p>From the first house I cleaned to my 100th, the goal has been the same: provide a great service and leave the customer happy. That's the expectation Lumen set out to meet.</p>
-        <p>Since then we've kept helping homeowners all around the area, and the business has kept growing. We're excited for what's next, and we hope you'll come along with us.</p>
-        <div class="asign"><b>Jack Tholen</b><span>Owner, Lumen Exteriors</span></div>
-        <div><a class="btn btn-led" href="tel:+14632349179">Call or text Jack: (463) 234-9179</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="quote" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center">
-      <div class="eyebrow">Pricing and free quote</div>
-      <h2>Simple pricing. Your estimate in a minute.</h2>
-      <p>Here's what we charge per pane. Use the estimator below to see a price range for your home, then text it to us and we'll confirm the exact price.</p>
-    </div>
-    <div class="prices">
-      <article><span class="pk">Window cleaning</span><h3>Outside only</h3><div class="pp">$6–$8 <small>per pane</small></div></article>
-      <article><span class="pk">Window cleaning</span><h3>Inside and outside</h3><div class="pp">$12–$14 <small>per pane</small></div></article>
-    </div>
-    <p class="pnote">Screens, very dirty tracks and hard water removal are extra and priced when we see the windows.</p>
-    <div class="q">
-      <div class="qform">
-        <fieldset id="qWin">
-          <legend>Window cleaning</legend>
-          <div class="qrow"><span class="ql">What should we clean?</span>
-            <div class="qseg" role="group" aria-label="Inside or outside">
-              <button type="button" data-side="ext" aria-pressed="true"><b>Outside only</b><span>$6 to $8 per pane</span></button>
-              <button type="button" data-side="both" aria-pressed="false"><b>Inside and outside</b><span>$12 to $14 per pane</span></button>
-            </div></div>
-          <div class="qrow"><label class="ql" for="qPanes">How many panes of glass?</label>
-            <div class="qnum"><button type="button" data-step="qPanes" data-d="-1" aria-label="Fewer panes">−</button><input id="qPanes" type="number" inputmode="numeric" min="0" max="500" value="30"><button type="button" data-step="qPanes" data-d="1" aria-label="More panes">+</button></div>
-            <p class="qhelp">A pane is one piece of glass. A window that slides up and down usually has two. A rough count is fine.</p></div>
-          <div class="qrow"><span class="ql">Any extras? <em>Priced when we see the windows</em></span>
-            <div class="qchecks">
-              <label><input type="checkbox" id="qScreens"> Screen cleaning</label>
-              <label><input type="checkbox" id="qTracks"> Deep clean of very dirty tracks</label>
-              <label><input type="checkbox" id="qHard"> Hard water stain removal</label>
-            </div></div>
-        </fieldset>
-      </div>
-      <aside class="qout" aria-live="polite">
-        <div class="eyebrow">Your estimate</div>
-        <div class="qtotal" id="qTotal">$180 to $240</div>
-        <ul class="qlines" id="qLines"></ul>
-        <p class="qnote" id="qNote"></p>
-        <a class="btn btn-led" id="qSms" href="sms:+14632349179">Text us this estimate</a>
-        <a class="btn btn-ghost" id="qMail" href="mailto:lumenexteriorsllc@gmail.com">Email it instead</a>
-        <p class="qfine">This is an estimate, not a final price. We confirm the exact price after we see your home. Call or text (463) 234-9179.</p>
-      </aside>
     </div>
   </div>
 </section>
@@ -1177,7 +1190,7 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 <footer>
   <img class="flogo" src="../work/lumen-logo.png" alt="Lumen Exteriors logo" loading="lazy" width="132" height="132">
   <div class="wrap">
-    <span>© <span id="yr">2026</span> Lumen Exteriors LLC · Fishers, Indiana · <span class="floc"><a href="../charleston/">Also in Charleston, South Carolina</a></span></span>
+    <span>© <span id="yr">2026</span> Lumen Exteriors LLC · Fishers, Indiana · <span class="floc"><a href="../">Main site</a> · <a href="../charleston/">Also in Charleston, South Carolina</a></span></span>
     <span>Pure-water window cleaning</span>
   </div>
 </footer>
@@ -1394,6 +1407,11 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
   if('IntersectionObserver' in window) new IntersectionObserver(function(es,o){ if(es[0].isIntersecting){ cal.classList.add('in'); o.disconnect(); } },{threshold:.3}).observe(cal); else cal.classList.add('in');
   setTimeout(function(){ cal.classList.add('in'); },6000);
 })();
+</script>
+<script>
+(function(){ var c=document.querySelector('.sea.now'); if(!c) return; var dd=c.querySelectorAll('dd');
+  document.getElementById('nowS').textContent='Right now: '+c.querySelector('h3').textContent;
+  document.getElementById('nowT').textContent='Best time to clean'; document.getElementById('nowB').textContent=dd[1].textContent; })();
 </script>
 </body>
 </html>
