@@ -908,6 +908,40 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .plan .btn{justify-content:center;margin-top:4px}
 .plan:not(.top) .btn-ghost{border-color:var(--led);color:var(--deepamber)}
 
+/* cleaning times of year */
+.yr{background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(16px,3vw,30px);box-shadow:0 40px 80px -64px rgba(34,37,42,.6)}
+.yr-m,.yr-b{display:grid;grid-template-columns:repeat(12,1fr)}
+.yr-m span{text-align:center;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#9a9486;padding-bottom:10px}
+.yr-m span.on{color:var(--ink)}
+.yr-track{position:relative}
+.yr-b{height:64px;border-radius:16px;background:repeating-linear-gradient(90deg,#f6f3ec 0,#f6f3ec calc(100%/12 - 1px),#e9e4d8 calc(100%/12 - 1px),#e9e4d8 calc(100%/12));overflow:hidden}
+.yr-b a{display:grid;place-items:center;margin:6px 3px;border-radius:12px;background:var(--c);color:var(--t,#fff);font-family:var(--display);font-weight:800;font-size:1rem;text-decoration:none;white-space:nowrap;overflow:hidden;transform-origin:left;transform:scaleX(0);box-shadow:0 10px 18px -10px var(--c)}
+.yr.in .yr-b a{transform:none;transition:transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i)*.25s)}
+.yr-now{position:absolute;top:-6px;bottom:-6px;width:3px;margin-left:-1.5px;border-radius:3px;background:#22252a;left:var(--x,50%)}
+.yr-now::after{content:"Today";position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:6px;padding:3px 9px;border-radius:999px;background:#22252a;color:#fff;font-weight:700;font-size:.72rem;white-space:nowrap}
+.yr-now::before{content:"";position:absolute;left:50%;top:-5px;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;background:#22252a;animation:nowdot 2s ease-out infinite}
+@keyframes nowdot{0%{box-shadow:0 0 0 0 rgba(34,37,42,.5)}100%{box-shadow:0 0 0 14px rgba(34,37,42,0)}}
+.wins{display:grid;grid-template-columns:repeat(var(--n,3),1fr);gap:14px;margin-top:44px}
+@media (max-width:860px){.wins{grid-template-columns:1fr}}
+.win{position:relative;border-radius:24px;overflow:hidden;background:#fff;border:1px solid var(--line);display:grid;grid-template-rows:auto 1fr;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.win:hover{transform:translateY(-5px);box-shadow:0 34px 50px -34px rgba(34,37,42,.5)}
+.win-top{position:relative;overflow:hidden;padding:24px 22px 22px;background:var(--c);color:var(--t,#fff);display:grid;gap:6px}
+.win-top::after{content:"";position:absolute;right:-40px;top:-50px;width:170px;height:170px;border-radius:50%;background:rgba(255,255,255,.22);animation:drift2 9s ease-in-out infinite alternate}
+.win-top small{font-weight:800;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.win-top b{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,3.2vw,2.5rem);line-height:1.02;letter-spacing:-.02em}
+.win-body{padding:20px 22px 22px;display:grid;gap:14px;align-content:start}
+.win-body p{color:var(--muted)}
+.win-body .chip{justify-self:start;padding:5px 12px;border-radius:999px;background:var(--cb);color:var(--ct);font-weight:700;font-size:.8rem}
+.win .state{display:none;justify-self:start;position:relative;z-index:1;padding:4px 10px;border-radius:999px;background:#22252a;color:#fff;font-weight:800;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.win.now .state,.win.next .state{display:inline-block}
+.win.now .state{animation:nowp 2s ease-in-out infinite}
+.win.now{box-shadow:0 0 0 3px #22252a,0 34px 50px -30px var(--c)}
+.sp{--c:#4fa35c;--ct:#2f7a3c;--cb:#eaf6ec}.su{--c:#f5b81f;--t:#221a05;--ct:#8f6200;--cb:#fff6dc}.fa{--c:#e0802e;--ct:#a3520f;--cb:#fdefe2}
+@keyframes nowp{50%{transform:scale(1.07)}}
+.offnote{margin-top:14px;padding:16px 20px;border-radius:16px;background:var(--skyl);color:#1d4f86;font-weight:600}
+@media (max-width:560px){.yr-m span{font-size:.62rem;letter-spacing:0}.yr-b{height:52px}.yr-b a{font-size:.68rem;margin:5px 2px;border-radius:9px}.yr{padding:14px 10px 34px}}
+.yr{padding-bottom:44px}
+
 /* location pages: their own header and color theme */
 .lhero{position:relative;overflow:hidden;isolation:isolate;padding:54px 0 64px;background:var(--hb)}
 .lhero::before{content:"";position:absolute;z-index:-1;width:min(700px,110vw);aspect-ratio:1;right:-16%;top:-30%;border-radius:50%;background:radial-gradient(circle,var(--hg),transparent 68%);animation:drift1 14s ease-in-out infinite alternate}
@@ -964,7 +998,7 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
   <div class="wrap">
     <a class="brand" href="../" aria-label="Lumen Exteriors home"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="8.2" fill="#e8a51a"/><g stroke="#e8a51a" stroke-width="2.4" stroke-linecap="round"><path d="M20 3.5v6M20 30.5v6M3.5 20h6M30.5 20h6M8.3 8.3l4.3 4.3M27.4 27.4l4.3 4.3M8.3 31.7l4.3-4.3M27.4 12.6l4.3-4.3"/></g></svg><span class="wm"><b>LUMEN</b><small>EXTERIORS</small></span></a>
     <ul id="navList">
-      <li><a href="#seasons">Seasons</a></li>
+      <li><a href="#seasons">When to clean</a></li>
       <li><a href="#quote">Prices and quote</a></li>
       <li><a href="#windows">How it's done</a></li>
       <li><a href="#work">Our work</a></li>
@@ -1000,12 +1034,13 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
 <section id="seasons">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow day">Through the year</div>
-      <h2>Fishers windows, season by season</h2>
-      <p>Central Indiana throws something different at your glass every few months. Here's what builds up, and when a cleaning does the most good.</p>
+      <div class="eyebrow day">When to clean</div>
+      <h2>The best times of year to clean in Fishers</h2>
+      <p>Three stretches of the year do the most good for Indiana glass, and our cleaning plans are built around them.</p>
     </div>
-    <div class="seasons"><article class="sea sp" data-sea="sp"><span class="nowtag">Right now</span><span class="mo">March to May</span><h3>Spring</h3><dl><div><dt>What builds up</dt><dd>Winter road-salt film and grime, then tree pollen and spring rain spots.</dd></div><div><dt>Best time to clean</dt><dd>March through May. This is the first cleaning on both of our plans.</dd></div></dl></article><article class="sea su" data-sea="su"><span class="nowtag">Right now</span><span class="mo">June to August</span><h3>Summer</h3><dl><div><dt>What builds up</dt><dd>Bugs, cobwebs, storm dust and sprinkler spots on the lower windows.</dd></div><div><dt>Best time to clean</dt><dd>July and August. This is the mid-year cleaning on our three-times-a-year plan.</dd></div></dl></article><article class="sea fa" data-sea="fa"><span class="nowtag">Right now</span><span class="mo">September to November</span><h3>Fall</h3><dl><div><dt>What builds up</dt><dd>Falling leaves, dust from harvest season and summer's leftover grime.</dd></div><div><dt>Best time to clean</dt><dd>October and November, before the hard freezes and before holiday guests.</dd></div></dl></article><article class="sea wi" data-sea="wi"><span class="nowtag">Right now</span><span class="mo">December to February</span><h3>Winter</h3><dl><div><dt>What builds up</dt><dd>Road-salt spray and snow melt, with a low sun that shows every streak.</dd></div><div><dt>Best time to clean</dt><dd>Inside glass any day. Outside glass on days above freezing.</dd></div></dl></article></div>
-    <div class="cal" id="cal"><h3>Best months for a cleaning in Fishers</h3><div class="months" role="img" aria-label="March through May, July, August, October and November are the best months. June and September are good. December through February depend on the weather."><span class="wx" style="--i:0" data-m="0" title="January">J</span><span class="wx" style="--i:1" data-m="1" title="February">F</span><span class="best" style="--i:2" data-m="2" title="March">M</span><span class="best" style="--i:3" data-m="3" title="April">A</span><span class="best" style="--i:4" data-m="4" title="May">M</span><span class="good" style="--i:5" data-m="5" title="June">J</span><span class="best" style="--i:6" data-m="6" title="July">J</span><span class="best" style="--i:7" data-m="7" title="August">A</span><span class="good" style="--i:8" data-m="8" title="September">S</span><span class="best" style="--i:9" data-m="9" title="October">O</span><span class="best" style="--i:10" data-m="10" title="November">N</span><span class="wx" style="--i:11" data-m="11" title="December">D</span></div><div class="legend"><span><i class="b"></i>Best months</span><span><i class="g"></i>Good months</span><span><i></i>Weather permitting</span><span><i class="c"></i>This month</span></div></div>
+    <div class="yr" id="yrline" role="img" aria-label="Cleaning times: Spring cleaning March – May, Summer cleaning July – August, Fall cleaning October – November"><div class="yr-m" aria-hidden="true"><span class="">Jan</span><span class="">Feb</span><span class="on">Mar</span><span class="on">Apr</span><span class="on">May</span><span class="">Jun</span><span class="on">Jul</span><span class="on">Aug</span><span class="">Sep</span><span class="on">Oct</span><span class="on">Nov</span><span class="">Dec</span></div><div class="yr-track"><div class="yr-b"><a class="sp" href="#win-sp" style="grid-column:3/6;--i:0">Spring</a><a class="su" href="#win-su" style="grid-column:7/9;--i:1">Summer</a><a class="fa" href="#win-fa" style="grid-column:10/12;--i:2">Fall</a></div><i class="yr-now" id="yrNow"></i></div></div>
+    <div class="wins" style="--n:3"><article class="win sp" id="win-sp" data-a="2" data-b="4"><div class="win-top"><span class="state"></span><small>Spring cleaning</small><b>March – May</b></div><div class="win-body"><p>Clears off winter road-salt film and grime, then the tree pollen and spring rain spots.</p><span class="chip">On both plans</span></div></article><article class="win su" id="win-su" data-a="6" data-b="7"><div class="win-top"><span class="state"></span><small>Summer cleaning</small><b>July – August</b></div><div class="win-body"><p>Takes off bugs, cobwebs, storm dust and sprinkler spots on the lower windows.</p><span class="chip">On the tri-annual plan</span></div></article><article class="win fa" id="win-fa" data-a="9" data-b="10"><div class="win-top"><span class="state"></span><small>Fall cleaning</small><b>October – November</b></div><div class="win-body"><p>Clears falling leaves, harvest dust and summer's leftover grime, before the hard freezes and holiday guests.</p><span class="chip">On both plans</span></div></article></div>
+    <p class="offnote">December to February: inside glass can be cleaned any day, and outside glass on days above freezing.</p>
     <div class="plans-head"><div class="eyebrow">Cleaning plans</div><h3 style="font-size:clamp(1.6rem,3vw,2.2rem)">Keep them clean all year</h3><p>One cleaning looks great for a while. A set schedule keeps your glass clear through every Indiana season, and you never have to remember to book.</p></div>
     <div class="plans">
       <article class="plan"><span class="tag">Twice a year</span><h3>Bi-annual plan</h3><p>Two cleanings, timed for the two seasons that hit Fishers glass hardest.</p>
@@ -1015,7 +1050,6 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
         <ul class="visits"><li><i style="--c:#5fae6b"></i>Spring cleaning<span>March to May</span></li><li><i style="--c:#f5b81f"></i>Summer cleaning<span>July to August</span></li><li><i style="--c:#e0802e"></i>Fall cleaning<span>October to November</span></li></ul>
         <a class="btn btn-led" href="sms:+14632349179?&body=Hi%20Lumen%20Exteriors!%20I'm%20interested%20in%20the%20three-times-a-year%20window%20cleaning%20plan.">Ask about three times a year</a></article>
     </div>
-    <p class="rhythm">We recommend a set schedule for Fishers-area homes: twice a year in spring and fall, or three times a year with a summer cleaning added.</p>
   </div>
 </section>
 
@@ -1432,18 +1466,16 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
 </script>
 <script>
 (function(){
-  var m=new Date().getMonth(), k=m>=2&&m<=4?'sp':m>=5&&m<=7?'su':m>=8&&m<=10?'fa':'wi';
-  var c=document.querySelector('.sea[data-sea="'+k+'"]'); if(c) c.classList.add('now');
-  var mc=document.querySelector('.months [data-m="'+m+'"]'); if(mc) mc.classList.add('cur');
-  var cal=document.getElementById('cal'); if(!cal) return;
-  if('IntersectionObserver' in window) new IntersectionObserver(function(es,o){ if(es[0].isIntersecting){ cal.classList.add('in'); o.disconnect(); } },{threshold:.3}).observe(cal); else cal.classList.add('in');
-  setTimeout(function(){ cal.classList.add('in'); },6000);
+  var d=new Date(), m=d.getMonth(), dim=new Date(d.getFullYear(),m+1,0).getDate();
+  var now=document.getElementById('yrNow'); if(now) now.style.setProperty('--x',((m+(d.getDate()-.5)/dim)/12*100).toFixed(2)+'%');
+  var wins=[].slice.call(document.querySelectorAll('.win')), cur=null, next=null, best=99;
+  wins.forEach(function(w){ var a=+w.dataset.a,b=+w.dataset.b; if(m>=a&&m<=b) cur=w; var gap=(a-m+12)%12; if(gap>0&&gap<best){ best=gap; next=w; } });
+  var pick=cur||next; if(pick){ pick.classList.add(cur?'now':'next'); pick.querySelector('.state').textContent=cur?'Booking now':'Up next'; }
+  var s=document.getElementById('nowS'); if(s&&pick){ s.textContent=(cur?'Right now: ':'Up next: ')+pick.querySelector('small').textContent; document.getElementById('nowT').textContent=pick.querySelector('b').textContent; document.getElementById('nowB').textContent=pick.querySelector('p').textContent; }
+  var yr=document.getElementById('yrline'); if(!yr) return;
+  if('IntersectionObserver' in window) new IntersectionObserver(function(es,o){ if(es[0].isIntersecting){ yr.classList.add('in'); o.disconnect(); } },{threshold:.4}).observe(yr); else yr.classList.add('in');
+  setTimeout(function(){ yr.classList.add('in'); },6000);
 })();
-</script>
-<script>
-(function(){ var c=document.querySelector('.sea.now'); if(!c) return; var dd=c.querySelectorAll('dd');
-  document.getElementById('nowS').textContent='Right now: '+c.querySelector('h3').textContent;
-  document.getElementById('nowT').textContent='Best time to clean'; document.getElementById('nowB').textContent=dd[1].textContent; })();
 </script>
 </body>
 </html>
