@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lumen Exteriors</title>
-<meta name="description" content="Pure-water window cleaning for homes and businesses in Fishers, Noblesville, Carmel, Westfield, Zionsville and nearby. Lumen Exteriors.">
+<meta name="description" content="Pure-water window cleaning for homes and businesses around Fishers, Indiana and Charleston, South Carolina. Lumen Exteriors.">
 <link rel="icon" type="image/png" href="work/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,7 +84,7 @@ p{margin:0}
 .compare tbody tr{transition:opacity .6s, transform .6s}
 .compare tbody tr:nth-child(1){transition-delay:0ms}.compare tbody tr:nth-child(2){transition-delay:90ms}.compare tbody tr:nth-child(3){transition-delay:180ms}.compare tbody tr:nth-child(4){transition-delay:270ms}.compare tbody tr:nth-child(5){transition-delay:360ms}.compare tbody tr:nth-child(6){transition-delay:450ms}
 .compare.pre tbody tr{opacity:0;transform:translateX(-12px)}
-@media (prefers-reduced-motion: reduce){.spot{display:none}.wipe .cover{display:none}.y.pre-lit{color:var(--led)}.y.lit{animation:none}.btn-led:hover::after{animation:none}.proc article.pre::after{transform:none}.flow .st.pre .bar i{width:auto!important}.compare.pre tbody tr{opacity:1;transform:none}}
+@media not all{.spot{display:none}.wipe .cover{display:none}.y.pre-lit{color:var(--led)}.y.lit{animation:none}.btn-led:hover::after{animation:none}.proc article.pre::after{transform:none}.flow .st.pre .bar i{width:auto!important}.compare.pre tbody tr{opacity:1;transform:none}}
 
 
 /* Nav */
@@ -299,7 +299,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
 .half.night .in > *:nth-child(2){animation-delay:.1s}.half.night .in > *:nth-child(3){animation-delay:.2s}.half.night .in > *:nth-child(4){animation-delay:.3s}.half.night .in > *:nth-child(5){animation-delay:.4s}
 .reveal{transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .reveal.pre{opacity:0;transform:translateY(24px)}
-@media (prefers-reduced-motion: reduce){.half.day img{animation:none;transform:none}.half.night .in > *{animation:none}.reveal,.reveal.pre{transition:none;opacity:1;transform:none}}
+@media not all{.half.day img{animation:none;transform:none}.half.night .in > *{animation:none}.reveal,.reveal.pre{transition:none;opacity:1;transform:none}}
 .brand{gap:10px}
 .brand .wm{display:grid;line-height:1}
 .brand .wm b{font-family:var(--body);font-weight:500;font-size:1.32rem;letter-spacing:.3em;color:#fff}
@@ -684,6 +684,120 @@ section[id],header[id]{scroll-margin-top:84px}
 .h3trio img:nth-child(2){animation-delay:.12s}.h3trio img:nth-child(3){animation-delay:.24s}
 @media (max-width:760px){.hero3 h1{font-size:min(8.6vw,3.4rem)}.h3trio{gap:8px;margin-top:30px}.h3trio img{border-radius:14px}}
 .hero3{padding-bottom:56px}
+
+/* ===== color + motion pass: blue for "pure water", yellow for the brand ===== */
+:root{--sky:#1f6fc4;--sky2:#5aaeea;--skyl:#eaf5fe;--warm:#fff6dc}
+/* eyebrows become colored chips */
+.eyebrow{display:inline-block;justify-self:start;padding:6px 13px;border-radius:999px;background:var(--warm);color:var(--deepamber);letter-spacing:.14em}
+.eyebrow.day{background:var(--skyl);color:var(--sky)}
+.sec-head.center .eyebrow{justify-self:center}
+.on-photo .eyebrow,.qout .eyebrow{background:rgba(255,211,92,.16);color:#ffd35c}
+/* scroll progress under the nav */
+.nav::after{content:"";position:absolute;left:0;bottom:-3px;height:3px;width:100%;transform-origin:left;transform:scaleX(var(--sp,0));background:linear-gradient(90deg,var(--led),var(--sky2),var(--sky))}
+/* promo bar shimmer */
+.promo{background:linear-gradient(100deg,#f5b81f 0%,#f5b81f 40%,#ffe08a 50%,#f5b81f 60%,#f5b81f 100%);background-size:250% 100%;animation:promo 6s linear infinite}
+@keyframes promo{from{background-position:120% 0}to{background-position:-130% 0}}
+/* buttons: warm gradient and a shine that passes on its own */
+.btn-led{background:linear-gradient(135deg,#ffcf4a,#f5b81f 55%,#eea412)}
+.btn-led::after{animation:shine2 5s ease-in-out infinite}
+.btn-led:hover::after{animation:shine2 5s ease-in-out infinite}
+@keyframes shine2{0%,70%{left:-60%}100%{left:130%}}
+.btn-ghost{background:#fff;border-color:#cfe3f5;color:var(--sky)}
+.btn-ghost:hover{border-color:var(--sky);color:var(--sky);background:var(--skyl)}
+.btn:active{transform:scale(.97)}
+/* hero: soft color wash, drifting light, rising water bubbles */
+.hero3{background:linear-gradient(180deg,#eaf5fe 0%,#f6fbff 38%,#fff 78%);isolation:isolate}
+.hero3::before,.hero3::after{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none}
+.hero3::before{width:min(620px,95vw);aspect-ratio:1;right:-18%;top:-22%;background:radial-gradient(circle,rgba(90,174,234,.42),rgba(90,174,234,0) 68%);animation:drift1 14s ease-in-out infinite alternate}
+.hero3::after{width:min(560px,90vw);aspect-ratio:1;left:-20%;top:8%;background:radial-gradient(circle,rgba(245,184,31,.36),rgba(245,184,31,0) 68%);animation:drift2 17s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(-14%,16%) scale(1.15)}}
+@keyframes drift2{to{transform:translate(18%,-10%) scale(1.2)}}
+.hero3 .wrap{position:relative;z-index:1}
+.bubbles{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bubbles i{position:absolute;bottom:-40px;width:var(--s,18px);height:var(--s,18px);left:var(--x,50%);border-radius:50%;border:1.5px solid rgba(47,143,208,.38);background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.95),rgba(170,220,255,.28) 46%,rgba(90,174,234,.1) 70%);animation:bub var(--d,13s) linear infinite;animation-delay:var(--dl,0s)}
+@keyframes bub{0%{transform:translate(0,0) scale(.6);opacity:0}10%{opacity:.9}50%{transform:translate(22px,-52vh) scale(1)}90%{opacity:.75}100%{transform:translate(-14px,-105vh) scale(1.1);opacity:0}}
+/* hero photos float gently, with colored frames */
+.h3trio img{border:4px solid #fff;box-shadow:0 30px 60px -34px rgba(31,111,196,.55);animation:rise .9s cubic-bezier(.2,.7,.2,1) both,floaty 7s ease-in-out infinite}
+.h3trio img:nth-child(1){rotate:-1.6deg}
+.h3trio img:nth-child(2){animation-delay:.12s,-2.3s;box-shadow:0 30px 60px -34px rgba(232,165,26,.75);margin-top:-14px}
+.h3trio img:nth-child(3){rotate:1.6deg;animation-delay:.24s,-4.6s}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -10px}}
+.hero3 .eyebrow{background:#fff;box-shadow:0 6px 20px -10px rgba(31,111,196,.5);color:var(--sky)}
+/* moving ticker */
+.ticker{background:#22252a;color:#fff;overflow:hidden;padding:15px 0;font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:.01em}
+.ticker .tk{display:flex;width:max-content;animation:tick 34s linear infinite}
+.ticker ul{display:flex;flex:none;gap:34px;list-style:none;margin:0;padding:0 17px;white-space:nowrap}
+.ticker li{display:flex;align-items:center;gap:34px}
+.ticker li::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--led)}
+.ticker li:nth-child(even)::after{background:var(--sky2)}
+.ticker li:nth-child(3n){color:#ffd35c}
+.ticker li:nth-child(3n+1){color:#bfe3ff}
+@keyframes tick{to{transform:translateX(-50%)}}
+/* how it's done: blue water section */
+.dayband{background:linear-gradient(180deg,#eaf5fe,#f7fbff 55%,#fff)}
+.split{border-color:#d5e8f8;box-shadow:0 40px 80px -60px rgba(31,111,196,.6)}
+.facts div{background:var(--skyl);border-color:#d5e8f8;transition:transform .25s}
+.facts div:hover{transform:translateY(-3px)}
+.facts b{color:var(--sky)}
+.flow .st{position:relative;overflow:hidden;border-color:#e3edf5;transition:transform .25s,box-shadow .25s}
+.flow .st::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--led)}
+.flow .st:nth-child(2)::before{background:linear-gradient(90deg,var(--led),#9fc7a0)}
+.flow .st:nth-child(n+3)::before{background:linear-gradient(90deg,var(--sky2),var(--sky))}
+.flow .st:hover{transform:translateY(-4px);box-shadow:0 24px 40px -28px rgba(31,111,196,.6)}
+.flow .k{color:var(--deepamber)}
+.flow .st:nth-child(n+3) .k{color:var(--sky)}
+.flow .bar i.clean{background:var(--sky2)}
+.compare{border-color:#d5e8f8}
+.compare thead th.us{background:linear-gradient(135deg,var(--sky),var(--sky2));color:#fff}
+.compare td.us{background:var(--skyl)}
+.compare .y::before{color:var(--sky)}
+.compare .x::before{color:#d98a76}
+/* video band glow */
+.vgrid .phone{box-shadow:0 40px 80px -40px rgba(34,37,42,.6),0 0 0 10px rgba(245,184,31,.14),0 0 90px 10px rgba(245,184,31,.35);animation:halo 5s ease-in-out infinite}
+@keyframes halo{50%{box-shadow:0 40px 80px -40px rgba(34,37,42,.6),0 0 0 16px rgba(90,174,234,.14),0 0 110px 18px rgba(90,174,234,.4)}}
+/* gallery tiles lift */
+.work .tile{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.work .tile:hover{transform:translateY(-5px);box-shadow:0 26px 44px -26px rgba(31,111,196,.65)}
+.work .play{background:var(--led);color:#221a05}
+/* about */
+.about{background:linear-gradient(135deg,#fff6dc,#fffdf6 55%,#eaf5fe);border-color:#f3e2b0}
+.aphoto{box-shadow:0 26px 50px -34px rgba(34,37,42,.6)}
+/* pricing */
+.prices article{position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;padding-top:26px}
+.prices article::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,#ffcf4a,var(--led2))}
+.prices article:nth-child(2)::before{background:linear-gradient(90deg,var(--sky2),var(--sky))}
+.prices article:nth-child(2) .pk{color:var(--sky)}
+.prices article:hover{transform:translateY(-4px);box-shadow:0 26px 44px -28px rgba(34,37,42,.45)}
+.qform{border-color:#e3edf5;box-shadow:0 40px 80px -64px rgba(31,111,196,.6)}
+.qout{background:linear-gradient(160deg,#22252a 0%,#1c3350 70%,#1f5a94 130%)}
+.qtotal{color:#ffd35c}
+.qtotal.bump{animation:bump .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes bump{40%{transform:scale(1.07)}}
+.qseg button{transition:transform .15s,border-color .2s,background .2s}
+.qseg button:active{transform:scale(.98)}
+/* faq */
+.faq details{background:#fff;transition:border-color .25s,box-shadow .25s,background .25s;border-left:4px solid var(--line)}
+.faq details:nth-child(odd){border-left-color:var(--led)}
+.faq details:nth-child(even){border-left-color:var(--sky2)}
+.faq details[open]{background:#fffdf6;box-shadow:0 20px 40px -32px rgba(34,37,42,.5)}
+.faq details[open] p{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
+/* service area */
+.townlist li{transition:transform .2s,background .2s,border-color .2s}
+.townlist li:nth-child(even){background:var(--skyl);border-color:#d5e8f8;color:var(--sky)}
+.townlist li:nth-child(odd):not(.home){background:var(--warm);border-color:#f3e2b0;color:var(--deepamber)}
+.townlist li.home{background:var(--led);color:#221a05;border-color:var(--led)}
+.townlist li:hover{transform:translateY(-2px)}
+.map{border-color:#d5e8f8;box-shadow:0 30px 60px -44px rgba(31,111,196,.6)}
+/* contact band + footer */
+.contact-band::before{background:linear-gradient(100deg,rgba(24,28,34,.95) 0%,rgba(22,50,82,.84) 55%,rgba(31,111,196,.5) 100%)}
+.contact-band > img{animation:kb2 22s ease-in-out infinite alternate}
+@keyframes kb2{from{transform:scale(1)}to{transform:scale(1.12)}}
+footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(--led),var(--sky2),var(--sky)) 1}
+/* stronger reveals */
+.reveal.pre{opacity:0;transform:translateY(38px) scale(.97)}
+@media (max-width:760px){.ticker{font-size:.95rem;padding:12px 0}.h3trio img{border-width:3px}.h3trio img:nth-child(2){margin-top:-8px}}
+.branch{font-family:var(--body);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:26px}
+.branch+.townlist{margin-top:10px}
 </style>
 </head>
 <body>
@@ -711,10 +825,11 @@ section[id],header[id]{scroll-margin-top:84px}
 </nav>
 
 <header class="hero3" id="top">
+<div class="bubbles" aria-hidden="true"><i style="--x:4%;--s:22px;--d:14s;--dl:-2s"></i><i style="--x:11%;--s:12px;--d:11s;--dl:-7s"></i><i style="--x:19%;--s:30px;--d:17s;--dl:-11s"></i><i style="--x:28%;--s:14px;--d:12s;--dl:-4s"></i><i style="--x:39%;--s:20px;--d:15s;--dl:-9s"></i><i style="--x:50%;--s:11px;--d:10s;--dl:-1s"></i><i style="--x:58%;--s:26px;--d:16s;--dl:-13s"></i><i style="--x:67%;--s:15px;--d:12s;--dl:-6s"></i><i style="--x:76%;--s:34px;--d:18s;--dl:-3s"></i><i style="--x:84%;--s:13px;--d:11s;--dl:-8s"></i><i style="--x:91%;--s:24px;--d:15s;--dl:-12s"></i><i style="--x:97%;--s:16px;--d:13s;--dl:-5s"></i></div>
   <div class="wrap">
     <div class="eyebrow">Pure-water window cleaning</div>
     <h1 aria-label="Glass that gleams. Views that sparkle."><span aria-hidden="true"><span class="gl1">Glass that <span class="gD" data-t="gleams.">gleams.</span></span><br><span class="rot"><span>Views that sparkle.</span><span>Homes that shine.</span><span>Streak-free, always.</span></span></span></h1>
-    <p class="lede">Lumen Exteriors, keeping homes bright in Fishers, Noblesville, Carmel, Westfield, Zionsville and nearby.</p>
+    <p class="lede">Lumen Exteriors, keeping homes bright around Fishers, Indiana and Charleston, South Carolina.</p>
     <div class="hero-ctas">
       <a class="btn btn-led" href="tel:+14632349179">Call or text (463) 234-9179</a>
       <a class="btn btn-ghost" href="#quote">Get a free quote</a>
@@ -726,6 +841,8 @@ section[id],header[id]{scroll-margin-top:84px}
     </div>
   </div>
 </header>
+
+<div class="ticker"><div class="tk"><ul><li>Streak-free glass</li><li>Pure-water cleaning</li><li>No ladders on your siding</li><li>Frames and sills included</li><li>Fishers</li><li>Carmel</li><li>Noblesville</li><li>Westfield</li><li>Zionsville</li><li>Charleston, SC</li><li>Talk to the owner directly</li><li>Free quotes by text</li><li>Safe for plants and pets</li></ul><ul aria-hidden="true"><li>Streak-free glass</li><li>Pure-water cleaning</li><li>No ladders on your siding</li><li>Frames and sills included</li><li>Fishers</li><li>Carmel</li><li>Noblesville</li><li>Westfield</li><li>Zionsville</li><li>Charleston, SC</li><li>Talk to the owner directly</li><li>Free quotes by text</li><li>Safe for plants and pets</li></ul></div></div>
 
 <section id="windows" class="dayband">
   <div class="wrap">
@@ -903,11 +1020,16 @@ section[id],header[id]{scroll-margin-top:84px}
     <div>
       <div class="sec-head" style="margin-bottom:0">
         <div class="eyebrow">Service area</div>
-        <h2>Local to Hamilton County and the north side</h2>
-        <p>We're based in Fishers and work across the surrounding towns. Not sure if you're in range? Just call or text.</p>
+        <h2>Two home bases: Fishers and Charleston</h2>
+        <p>Lumen has a branch in Fishers, Indiana and a branch in Charleston, South Carolina, and each one covers the towns around it. Not sure if you're in range? Just call or text.</p>
       </div>
+      <h3 class="branch">Indiana</h3>
       <ul class="townlist">
         <li class="home">Fishers (home base)</li><li>Carmel</li><li>Westfield</li><li>Zionsville</li><li>Noblesville</li><li>Geist</li><li>McCordsville</li><li>North Indianapolis</li>
+      </ul>
+      <h3 class="branch">South Carolina</h3>
+      <ul class="townlist">
+        <li class="home">Charleston (home base)</li><li>Nearby Lowcountry communities</li>
       </ul>
     </div>
     <div class="map">
@@ -920,7 +1042,7 @@ section[id],header[id]{scroll-margin-top:84px}
         <circle cx="250" cy="170" r="150" fill="url(#reach)"/>
         <circle cx="250" cy="170" r="110" fill="none" stroke="#f2ae1c" stroke-opacity=".5" stroke-dasharray="3 7"/>
         <g font-family="Figtree, sans-serif" font-size="13" font-weight="600" fill="#22252a">
-          <circle cx="250" cy="170" r="7" fill="#f2ae1c"/><text x="262" y="175" fill="#8f6200" font-size="15" font-weight="800">Fishers</text>
+          <circle cx="250" cy="170" r="7" fill="none" stroke="#f2ae1c" stroke-width="2"><animate attributeName="r" values="7;34" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="2.4s" repeatCount="indefinite"/></circle><circle cx="250" cy="170" r="7" fill="#f2ae1c"/><text x="262" y="175" fill="#8f6200" font-size="15" font-weight="800">Fishers</text>
           <circle cx="175" cy="160" r="4.5" fill="#8a9099"/><text x="122" y="152">Carmel</text>
           <circle cx="170" cy="85" r="4.5" fill="#8a9099"/><text x="112" y="78">Westfield</text>
           <circle cx="70" cy="175" r="4.5" fill="#8a9099"/><text x="34" y="200">Zionsville</text>
@@ -958,7 +1080,7 @@ section[id],header[id]{scroll-margin-top:84px}
 <footer>
   <img class="flogo" src="work/lumen-logo.png" alt="Lumen Exteriors logo" loading="lazy" width="132" height="132">
   <div class="wrap">
-    <span>© <span id="yr">2026</span> Lumen Exteriors LLC · Fishers, Indiana</span>
+    <span>© <span id="yr">2026</span> Lumen Exteriors LLC · Fishers, Indiana · Charleston, South Carolina</span>
     <span>Pure-water window cleaning</span>
   </div>
 </footer>
@@ -1065,7 +1187,7 @@ section[id],header[id]{scroll-margin-top:84px}
   if(reduce) document.querySelectorAll('video[autoplay]').forEach(v=>{ v.removeAttribute('autoplay'); v.pause(); });
 
   // ---------- reveals ----------
-  if(!reduce && 'IntersectionObserver' in window){
+  if('IntersectionObserver' in window){
     const els=[...document.querySelectorAll('.sec-head, .pkg, .s2, .xcount, .xstats, .about, .prices article, .svc, .feat article, .mon, .designer, .proc article, .split, .flow .st, .compare, .vgrid > *, .work .tile, .faq, .area > div, .contact > *')];
     els.forEach((el,k)=>{ el.classList.add('reveal'); if(el.getBoundingClientRect().top>innerHeight*.92){ el.classList.add('pre'); el.style.transitionDelay=((k%4)*70)+'ms'; } });
     const io2=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.remove('pre'); io2.unobserve(e.target); } }),{threshold:.1});
@@ -1140,6 +1262,15 @@ section[id],header[id]{scroll-margin-top:84px}
     var t=Math.max(0,x-n), s=Math.floor(t/1000);
     d.textContent=Math.floor(s/86400); document.getElementById('cdH').textContent=Math.floor(s%86400/3600); document.getElementById('cdM').textContent=Math.floor(s%3600/60); document.getElementById('cdS').textContent=s%60; }
   tick(); setInterval(tick,1000); })();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.nav');
+  function sp(){ var h=document.documentElement.scrollHeight-innerHeight; nav.style.setProperty('--sp',h>0?Math.min(1,scrollY/h):0); }
+  addEventListener('scroll',sp,{passive:true}); addEventListener('resize',sp); sp();
+  var t=document.getElementById('qTotal');
+  if(t&&'MutationObserver' in window) new MutationObserver(function(){ t.classList.remove('bump'); void t.offsetWidth; t.classList.add('bump'); }).observe(t,{childList:true,characterData:true,subtree:true});
+})();
 </script>
 </body>
 </html>
