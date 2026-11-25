@@ -851,6 +851,39 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .lede a,.floc a{color:inherit;font-weight:700;text-decoration:underline;text-decoration-color:var(--led);text-decoration-thickness:2px;text-underline-offset:3px}
 .areacard{display:grid;gap:12px;align-content:center;padding:clamp(24px,4vw,40px);border-radius:26px;background:linear-gradient(140deg,#eaf5fe,#f8fcff);border:1px solid #d5e8f8}
 .areacard p{color:var(--muted)}
+
+/* seasons guide */
+.seasons{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:1000px){.seasons{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.seasons{grid-template-columns:1fr}}
+.sea{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 20px 20px;display:grid;gap:12px;align-content:start;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.sea::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--c)}
+.sea::after{content:"";position:absolute;right:-50px;top:-50px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,var(--c),transparent 70%);opacity:.22;animation:drift2 9s ease-in-out infinite alternate}
+.sea:hover{transform:translateY(-5px);box-shadow:0 30px 46px -30px rgba(34,37,42,.5)}
+.sea.sp{--c:#5fae6b;--ct:#2f7a3c;--cb:#eaf6ec}.sea.su{--c:#f5b81f;--ct:#8f6200;--cb:#fff6dc}.sea.fa{--c:#e0802e;--ct:#a3520f;--cb:#fdefe2}.sea.wi{--c:#5aaeea;--ct:#1f6fc4;--cb:#eaf5fe}
+.sea .mo{justify-self:start;padding:4px 10px;border-radius:999px;background:var(--cb);color:var(--ct);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.sea h3{font-size:1.5rem}
+.sea dl{margin:0;display:grid;gap:10px}
+.sea dt{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ct)}
+.sea dd{margin:2px 0 0;color:var(--muted);font-size:.96rem}
+.sea.now{border-color:var(--c);box-shadow:0 0 0 2px var(--c) inset,0 30px 50px -32px var(--c)}
+.sea .nowtag{display:none;position:absolute;top:16px;right:14px;z-index:1;padding:4px 10px;border-radius:999px;background:var(--c);color:#fff;font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;animation:nowp 2s ease-in-out infinite}
+.sea.su .nowtag{color:#221a05}
+.sea.now .nowtag{display:block;position:static;justify-self:start}
+@keyframes nowp{50%{transform:scale(1.08)}}
+.cal{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
+.cal h3{font-size:1.15rem;margin-bottom:14px}
+.months{display:grid;grid-template-columns:repeat(12,1fr);gap:6px}
+.months span{display:grid;place-items:center;aspect-ratio:1/1.15;border-radius:10px;font-weight:800;font-size:.82rem;background:#f1eee6;color:#8a8577;opacity:0;transform:translateY(14px) scale(.9)}
+.cal.in .months span{opacity:1;transform:none;transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i)*55ms)}
+.months .best{background:linear-gradient(160deg,#ffcf4a,#f5b81f);color:#221a05}
+.months .good{background:var(--skyl);color:var(--sky)}
+.months .cur{box-shadow:0 0 0 3px #22252a}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:.88rem;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px;background:#f1eee6}
+.legend .b{background:#f5b81f}.legend .g{background:#cfe6fa}.legend .c{background:#fff;box-shadow:0 0 0 2px #22252a}
+.rhythm{margin-top:16px;padding:18px 22px;border-radius:18px;background:linear-gradient(135deg,#fff6dc,#eaf5fe);font-weight:600;font-size:1.05rem}
+@media (max-width:560px){.months{gap:4px}.months span{font-size:.7rem;border-radius:7px}.cal{padding:16px 12px}}
 </style>
 </head>
 <body>
@@ -867,11 +900,11 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
   <div class="wrap">
     <a class="brand" href="../" aria-label="Lumen Exteriors home"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="8.2" fill="#e8a51a"/><g stroke="#e8a51a" stroke-width="2.4" stroke-linecap="round"><path d="M20 3.5v6M20 30.5v6M3.5 20h6M30.5 20h6M8.3 8.3l4.3 4.3M27.4 27.4l4.3 4.3M8.3 31.7l4.3-4.3M27.4 12.6l4.3-4.3"/></g></svg><span class="wm"><b>LUMEN</b><small>EXTERIORS</small></span></a>
     <ul id="navList">
-      <li><a href="#windows">Window cleaning</a></li>
+      <li><a href="#seasons">Seasons</a></li>
+      <li><a href="#windows">How it's done</a></li>
       <li><a href="#work">Our work</a></li>
       <li><a href="#quote">Free quote</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#area">Service area</a></li>
       <li><a href="../fishers/">Fishers, IN</a></li>
     </ul>
     <a class="btn btn-led" href="tel:+14632349179">(463) 234-9179</a>
@@ -898,6 +931,19 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 </header>
 
 <div class="ticker"><div class="tk"><ul><li>Streak-free glass</li><li>Pure-water cleaning</li><li>No ladders on your siding</li><li>Frames and sills included</li><li>Charleston, SC</li><li>Lowcountry homes</li><li>Talk to the owner directly</li><li>Free quotes by text</li><li>Safe for plants and pets</li></ul><ul aria-hidden="true"><li>Streak-free glass</li><li>Pure-water cleaning</li><li>No ladders on your siding</li><li>Frames and sills included</li><li>Charleston, SC</li><li>Lowcountry homes</li><li>Talk to the owner directly</li><li>Free quotes by text</li><li>Safe for plants and pets</li></ul></div></div>
+
+<section id="seasons">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow day">Through the year</div>
+      <h2>Charleston windows, season by season</h2>
+      <p>Pollen, humidity, storms and salt air each take a turn at Lowcountry glass. Here's what builds up, and when a cleaning does the most good.</p>
+    </div>
+    <div class="seasons"><article class="sea sp" data-sea="sp"><span class="nowtag">Right now</span><span class="mo">March to May</span><h3>Spring</h3><dl><div><dt>What builds up</dt><dd>The yellow pine and oak pollen that coats everything, plus spring showers.</dd></div><div><dt>Best time to clean</dt><dd>Mid-April through May, after the heavy pollen has settled.</dd></div></dl></article><article class="sea su" data-sea="su"><span class="nowtag">Right now</span><span class="mo">June to August</span><h3>Summer</h3><dl><div><dt>What builds up</dt><dd>Humidity, afternoon thunderstorms, and mildew starting on frames and sills.</dd></div><div><dt>Best time to clean</dt><dd>Mornings, ahead of the heat and the afternoon storms. Good for a mid-year rinse.</dd></div></dl></article><article class="sea fa" data-sea="fa"><span class="nowtag">Right now</span><span class="mo">September to November</span><h3>Fall</h3><dl><div><dt>What builds up</dt><dd>Salt, wind-blown debris and rain spotting from tropical storm season.</dd></div><div><dt>Best time to clean</dt><dd>Late October through November, once storm season winds down and before the holidays.</dd></div></dl></article><article class="sea wi" data-sea="wi"><span class="nowtag">Right now</span><span class="mo">December to February</span><h3>Winter</h3><dl><div><dt>What builds up</dt><dd>Salt film and light dust, with a low sun that shows every streak.</dd></div><div><dt>Best time to clean</dt><dd>Any mild, dry day. Winters here are gentle enough for outside glass.</dd></div></dl></article></div>
+    <div class="cal" id="cal"><h3>Best months for a cleaning in Charleston</h3><div class="months" role="img" aria-label="April, May, October and November are the best months. Every other month is a good month."><span class="good" style="--i:0" data-m="0" title="January">J</span><span class="good" style="--i:1" data-m="1" title="February">F</span><span class="good" style="--i:2" data-m="2" title="March">M</span><span class="best" style="--i:3" data-m="3" title="April">A</span><span class="best" style="--i:4" data-m="4" title="May">M</span><span class="good" style="--i:5" data-m="5" title="June">J</span><span class="good" style="--i:6" data-m="6" title="July">J</span><span class="good" style="--i:7" data-m="7" title="August">A</span><span class="good" style="--i:8" data-m="8" title="September">S</span><span class="best" style="--i:9" data-m="9" title="October">O</span><span class="best" style="--i:10" data-m="10" title="November">N</span><span class="good" style="--i:11" data-m="11" title="December">D</span></div><div class="legend"><span><i class="b"></i>Best months</span><span><i class="g"></i>Good months</span><span><i class="c"></i>This month</span></div></div>
+    <p class="rhythm">Most Charleston homes do best with a cleaning in spring and another in fall. Homes on the water or the marsh collect salt faster and often want one every few months.</p>
+  </div>
+</section>
 
 <section id="windows" class="dayband">
   <div class="wrap">
@@ -1060,10 +1106,11 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
     </div>
     <div class="faq">
 <div class="faq">
-      <details><summary>How often should I have my windows cleaned?</summary><p>Most homes look their best with a cleaning in spring and fall. Homes near construction, busy roads or lots of trees may want it more often.</p></details>
+      <details><summary>How often should I have my windows cleaned?</summary><p>Most Charleston homes look their best with a cleaning in spring, after the pollen, and another in fall. Homes near the water, construction or lots of trees may want it more often.</p></details>
       <details><summary>Do I need to be home?</summary><p>For exterior-only cleanings, usually not, as long as we can reach the windows. For interior work, someone needs to be home to let us in.</p></details>
       <details><summary>What if it rains after you clean?</summary><p>Rain on clean glass dries much clearer than rain on dirty glass, because there's no dust or film for the water to carry around.</p></details>
       <details><summary>Can you remove hard water stains?</summary><p>Light spotting usually comes off in a normal cleaning. Heavy, long-standing mineral stains can need extra treatment, so mention them when you reach out and we'll take a look.</p></details>
+      <details><summary>I live near the water. How often should I clean?</summary><p>Salt spray builds up faster on homes near the ocean, the harbor or the marsh. Many waterfront homeowners choose a cleaning every few months instead of twice a year.</p></details>
       <details><summary>How do I get a price?</summary><p>Call or text (463) 234-9179 with your address and what you'd like cleaned. We'll get back to you with a clear price.</p></details>
     
     </div>
@@ -1321,6 +1368,16 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
   function stop(){ clearInterval(timer); timer=null; }
   var flow=document.querySelector('.flow');
   if('IntersectionObserver' in window) new IntersectionObserver(function(es){ es[0].isIntersecting?start():stop(); },{threshold:.15}).observe(flow); else start();
+})();
+</script>
+<script>
+(function(){
+  var m=new Date().getMonth(), k=m>=2&&m<=4?'sp':m>=5&&m<=7?'su':m>=8&&m<=10?'fa':'wi';
+  var c=document.querySelector('.sea[data-sea="'+k+'"]'); if(c) c.classList.add('now');
+  var mc=document.querySelector('.months [data-m="'+m+'"]'); if(mc) mc.classList.add('cur');
+  var cal=document.getElementById('cal'); if(!cal) return;
+  if('IntersectionObserver' in window) new IntersectionObserver(function(es,o){ if(es[0].isIntersecting){ cal.classList.add('in'); o.disconnect(); } },{threshold:.3}).observe(cal); else cal.classList.add('in');
+  setTimeout(function(){ cal.classList.add('in'); },6000);
 })();
 </script>
 </body>

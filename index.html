@@ -850,6 +850,39 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .lede a,.floc a{color:inherit;font-weight:700;text-decoration:underline;text-decoration-color:var(--led);text-decoration-thickness:2px;text-underline-offset:3px}
 .areacard{display:grid;gap:12px;align-content:center;padding:clamp(24px,4vw,40px);border-radius:26px;background:linear-gradient(140deg,#eaf5fe,#f8fcff);border:1px solid #d5e8f8}
 .areacard p{color:var(--muted)}
+
+/* seasons guide */
+.seasons{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:1000px){.seasons{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.seasons{grid-template-columns:1fr}}
+.sea{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 20px 20px;display:grid;gap:12px;align-content:start;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.sea::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--c)}
+.sea::after{content:"";position:absolute;right:-50px;top:-50px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,var(--c),transparent 70%);opacity:.22;animation:drift2 9s ease-in-out infinite alternate}
+.sea:hover{transform:translateY(-5px);box-shadow:0 30px 46px -30px rgba(34,37,42,.5)}
+.sea.sp{--c:#5fae6b;--ct:#2f7a3c;--cb:#eaf6ec}.sea.su{--c:#f5b81f;--ct:#8f6200;--cb:#fff6dc}.sea.fa{--c:#e0802e;--ct:#a3520f;--cb:#fdefe2}.sea.wi{--c:#5aaeea;--ct:#1f6fc4;--cb:#eaf5fe}
+.sea .mo{justify-self:start;padding:4px 10px;border-radius:999px;background:var(--cb);color:var(--ct);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.sea h3{font-size:1.5rem}
+.sea dl{margin:0;display:grid;gap:10px}
+.sea dt{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ct)}
+.sea dd{margin:2px 0 0;color:var(--muted);font-size:.96rem}
+.sea.now{border-color:var(--c);box-shadow:0 0 0 2px var(--c) inset,0 30px 50px -32px var(--c)}
+.sea .nowtag{display:none;position:absolute;top:16px;right:14px;z-index:1;padding:4px 10px;border-radius:999px;background:var(--c);color:#fff;font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;animation:nowp 2s ease-in-out infinite}
+.sea.su .nowtag{color:#221a05}
+.sea.now .nowtag{display:block;position:static;justify-self:start}
+@keyframes nowp{50%{transform:scale(1.08)}}
+.cal{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
+.cal h3{font-size:1.15rem;margin-bottom:14px}
+.months{display:grid;grid-template-columns:repeat(12,1fr);gap:6px}
+.months span{display:grid;place-items:center;aspect-ratio:1/1.15;border-radius:10px;font-weight:800;font-size:.82rem;background:#f1eee6;color:#8a8577;opacity:0;transform:translateY(14px) scale(.9)}
+.cal.in .months span{opacity:1;transform:none;transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i)*55ms)}
+.months .best{background:linear-gradient(160deg,#ffcf4a,#f5b81f);color:#221a05}
+.months .good{background:var(--skyl);color:var(--sky)}
+.months .cur{box-shadow:0 0 0 3px #22252a}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:.88rem;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px;background:#f1eee6}
+.legend .b{background:#f5b81f}.legend .g{background:#cfe6fa}.legend .c{background:#fff;box-shadow:0 0 0 2px #22252a}
+.rhythm{margin-top:16px;padding:18px 22px;border-radius:18px;background:linear-gradient(135deg,#fff6dc,#eaf5fe);font-weight:600;font-size:1.05rem}
+@media (max-width:560px){.months{gap:4px}.months span{font-size:.7rem;border-radius:7px}.cal{padding:16px 12px}}
 </style>
 </head>
 <body>
@@ -866,11 +899,10 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Lumen Exteriors home"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="8.2" fill="#e8a51a"/><g stroke="#e8a51a" stroke-width="2.4" stroke-linecap="round"><path d="M20 3.5v6M20 30.5v6M3.5 20h6M30.5 20h6M8.3 8.3l4.3 4.3M27.4 27.4l4.3 4.3M8.3 31.7l4.3-4.3M27.4 12.6l4.3-4.3"/></g></svg><span class="wm"><b>LUMEN</b><small>EXTERIORS</small></span></a>
     <ul id="navList">
+      <li><a href="#area">Locations</a></li>
       <li><a href="#windows">Window cleaning</a></li>
       <li><a href="#work">Our work</a></li>
-      <li><a href="#quote">Free quote</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#area">Locations</a></li>
+            <li><a href="#about">About</a></li>
     </ul>
     <a class="btn btn-led" href="tel:+14632349179">(463) 234-9179</a>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navList"><span></span><span></span><span></span></button>
@@ -885,7 +917,7 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
     <p class="lede">Lumen Exteriors, keeping homes bright around <a href="fishers/">Fishers, Indiana</a> and <a href="charleston/">Charleston, South Carolina</a>.</p>
     <div class="hero-ctas">
       <a class="btn btn-led" href="tel:+14632349179">Call or text (463) 234-9179</a>
-      <a class="btn btn-ghost" href="#quote">Get a free quote</a>
+      <a class="btn btn-ghost" href="#area">Choose your location</a>
     </div>
     <div class="h3trio">
       <img width="820" height="1093" src="work/arched-lakefront-sm.jpg" alt="Lakefront home with tall arched windows, freshly cleaned" style="object-position:50% 62%">
@@ -897,12 +929,26 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 
 <div class="ticker"><div class="tk"><ul><li>Streak-free glass</li><li>Pure-water cleaning</li><li>No ladders on your siding</li><li>Frames and sills included</li><li>Fishers</li><li>Carmel</li><li>Noblesville</li><li>Westfield</li><li>Zionsville</li><li>Charleston, SC</li><li>Talk to the owner directly</li><li>Free quotes by text</li><li>Safe for plants and pets</li></ul><ul aria-hidden="true"><li>Streak-free glass</li><li>Pure-water cleaning</li><li>No ladders on your siding</li><li>Frames and sills included</li><li>Fishers</li><li>Carmel</li><li>Noblesville</li><li>Westfield</li><li>Zionsville</li><li>Charleston, SC</li><li>Talk to the owner directly</li><li>Free quotes by text</li><li>Safe for plants and pets</li></ul></div></div>
 
+<section id="area">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">Locations</div>
+      <h2>Two home bases: Fishers and Charleston</h2>
+      <p>Lumen has a branch in Fishers, Indiana and a branch in Charleston, South Carolina. Pick yours for prices, a free estimate, and the best times of year to clean in your area.</p>
+    </div>
+    <div class="locs">
+      <a class="loc" href="fishers/"><div class="eyebrow">Indiana</div><h3>Fishers</h3><p>Fishers, Carmel, Westfield, Zionsville, Noblesville, Geist, McCordsville and North Indianapolis.</p><span class="go">Fishers window cleaning →</span></a>
+      <a class="loc sc" href="charleston/"><div class="eyebrow day">South Carolina</div><h3>Charleston</h3><p>Charleston and the Lowcountry communities around it.</p><span class="go">Charleston window cleaning →</span></a>
+    </div>
+  </div>
+</section>
+
 <section id="windows" class="dayband">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow day">How it's done</div>
       <h2>Spotless glass with pure water</h2>
-      <p>Tap water and spray cleaners leave something behind when they dry. Central Indiana's hard water is full of dissolved minerals, and glass cleaner leaves a thin film of soap. Pure water has nothing left in it, so it dries clear.</p>
+      <p>Tap water and spray cleaners leave something behind when they dry. Hard tap water is full of dissolved minerals, and glass cleaner leaves a thin film of soap. Pure water has nothing left in it, so it dries clear.</p>
     </div>
     <div class="split">
       <div class="ph"><img width="619" height="1100" src="work/pure-water-pole-sm.jpg" alt="Lumen Exteriors pure-water filtration cart with a water-fed pole cleaning a window" loading="lazy"></div>
@@ -918,30 +964,6 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
         </div>
       </div></div>
     </div>
-    <div class="flow" aria-label="How tap water becomes pure water">
-      <div class="st"><span class="k">STEP 1</span><h3>Tap water in</h3><p>Hard water carries calcium, magnesium and other dissolved minerals.</p><div class="lvl">Minerals: high</div></div>
-      <div class="st"><span class="k">STEP 2</span><h3>Filter</h3><p>Sediment and carbon filters catch grit, rust and chlorine.</p><div class="lvl">Minerals: still high</div></div>
-      <div class="st"><span class="k">STEP 3</span><h3>Deionize</h3><p>Resin in the tall steel tank pulls out the dissolved minerals, leaving water close to zero dissolved solids.</p><div class="lvl">Minerals: near zero</div></div>
-      <div class="st"><span class="k">STEP 4</span><h3>Scrub and rinse</h3><p>Pure water flows through a soft brush on the pole. It loosens dirt, then rinses glass and frames.</p><div class="lvl">Soap used: none</div></div>
-      <div class="st"><span class="k">STEP 5</span><h3>Dries spot-free</h3><p>With no minerals or soap in the water, there's nothing left on the glass when it dries.</p><div class="lvl">Residue: none</div></div>
-    </div>
-
-
-    <div class="compare"><div class="compare-wrap">
-      <table>
-        <thead><tr><th scope="col"></th><th scope="col">Spray cleaner and towels</th><th scope="col" class="us">Lumen pure-water system</th></tr></thead>
-        <tbody>
-          <tr><td>What's left on the glass</td><td><span class="x">A thin film of cleaner that can streak in direct sun</span></td><td class="us"><span class="y">Nothing. Pure water dries clear</span></td></tr>
-          <tr><td>How long it stays clean</td><td><span class="x">Leftover film can hold dust and pollen</span></td><td class="us"><span class="y">No residue for dirt to cling to</span></td></tr>
-          <tr><td>Frames and sills</td><td><span class="x">Often skipped, or wiped with a dirty towel</span></td><td class="us"><span class="y">Brushed and rinsed with the glass</span></td></tr>
-          <tr><td>Upper-story windows</td><td><span class="x">Ladders against siding and in flower beds</span></td><td class="us"><span class="y">Cleaned from the ground with the pole</span></td></tr>
-          <tr><td>Chemicals</td><td><span class="x">Ammonia or soap drips onto plants and patios</span></td><td class="us"><span class="y">Just water, safe for plants, pets and kids</span></td></tr>
-          <tr><td>Lint and smudges</td><td><span class="x">Paper towels can leave lint and swirl marks</span></td><td class="us"><span class="y">No towels touch the outside glass</span></td></tr>
-        </tbody>
-      </table>
-    </div></div>
-
-    <p class="note">Interior glass and very heavy buildup may still get a hand squeegee and a mild cleaner. Pure water does the work on the outside of the house.</p>
 
   </div>
 </section>
@@ -1001,83 +1023,6 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
         <div class="asign"><b>Jack Tholen</b><span>Owner, Lumen Exteriors</span></div>
         <div><a class="btn btn-led" href="tel:+14632349179">Call or text Jack: (463) 234-9179</a></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="quote" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center">
-      <div class="eyebrow">Pricing and free quote</div>
-      <h2>Simple pricing. Your estimate in a minute.</h2>
-      <p>Here's what we charge per pane. Use the estimator below to see a price range for your home, then text it to us and we'll confirm the exact price.</p>
-    </div>
-    <div class="prices">
-      <article><span class="pk">Window cleaning</span><h3>Outside only</h3><div class="pp">$6–$8 <small>per pane</small></div></article>
-      <article><span class="pk">Window cleaning</span><h3>Inside and outside</h3><div class="pp">$12–$14 <small>per pane</small></div></article>
-    </div>
-    <p class="pnote">Screens, very dirty tracks and hard water removal are extra and priced when we see the windows.</p>
-    <div class="q">
-      <div class="qform">
-        <fieldset id="qWin">
-          <legend>Window cleaning</legend>
-          <div class="qrow"><span class="ql">What should we clean?</span>
-            <div class="qseg" role="group" aria-label="Inside or outside">
-              <button type="button" data-side="ext" aria-pressed="true"><b>Outside only</b><span>$6 to $8 per pane</span></button>
-              <button type="button" data-side="both" aria-pressed="false"><b>Inside and outside</b><span>$12 to $14 per pane</span></button>
-            </div></div>
-          <div class="qrow"><label class="ql" for="qPanes">How many panes of glass?</label>
-            <div class="qnum"><button type="button" data-step="qPanes" data-d="-1" aria-label="Fewer panes">−</button><input id="qPanes" type="number" inputmode="numeric" min="0" max="500" value="30"><button type="button" data-step="qPanes" data-d="1" aria-label="More panes">+</button></div>
-            <p class="qhelp">A pane is one piece of glass. A window that slides up and down usually has two. A rough count is fine.</p></div>
-          <div class="qrow"><span class="ql">Any extras? <em>Priced when we see the windows</em></span>
-            <div class="qchecks">
-              <label><input type="checkbox" id="qScreens"> Screen cleaning</label>
-              <label><input type="checkbox" id="qTracks"> Deep clean of very dirty tracks</label>
-              <label><input type="checkbox" id="qHard"> Hard water stain removal</label>
-            </div></div>
-        </fieldset>
-      </div>
-      <aside class="qout" aria-live="polite">
-        <div class="eyebrow">Your estimate</div>
-        <div class="qtotal" id="qTotal">$180 to $240</div>
-        <ul class="qlines" id="qLines"></ul>
-        <p class="qnote" id="qNote"></p>
-        <a class="btn btn-led" id="qSms" href="sms:+14632349179">Text us this estimate</a>
-        <a class="btn btn-ghost" id="qMail" href="mailto:lumenexteriorsllc@gmail.com">Email it instead</a>
-        <p class="qfine">This is an estimate, not a final price. We confirm the exact price after we see your home. Call or text (463) 234-9179.</p>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section id="faq" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">FAQ</div>
-      <h2>Common questions</h2>
-    </div>
-    <div class="faq">
-<div class="faq">
-      <details><summary>How often should I have my windows cleaned?</summary><p>Most homes look their best with a cleaning in spring and fall. Homes near construction, busy roads or lots of trees may want it more often.</p></details>
-      <details><summary>Do I need to be home?</summary><p>For exterior-only cleanings, usually not, as long as we can reach the windows. For interior work, someone needs to be home to let us in.</p></details>
-      <details><summary>What if it rains after you clean?</summary><p>Rain on clean glass dries much clearer than rain on dirty glass, because there's no dust or film for the water to carry around.</p></details>
-      <details><summary>Can you remove hard water stains?</summary><p>Light spotting usually comes off in a normal cleaning. Heavy, long-standing mineral stains can need extra treatment, so mention them when you reach out and we'll take a look.</p></details>
-      <details><summary>How do I get a price?</summary><p>Call or text (463) 234-9179 with your address and what you'd like cleaned. We'll get back to you with a clear price.</p></details>
-    
-    </div>
-  </div>
-</section>
-
-<section id="area" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center">
-      <div class="eyebrow">Locations</div>
-      <h2>Two home bases: Fishers and Charleston</h2>
-      <p>Lumen has a branch in Fishers, Indiana and a branch in Charleston, South Carolina. Pick yours for local details.</p>
-    </div>
-    <div class="locs">
-      <a class="loc" href="fishers/"><div class="eyebrow">Indiana</div><h3>Fishers</h3><p>Fishers, Carmel, Westfield, Zionsville, Noblesville, Geist, McCordsville and North Indianapolis.</p><span class="go">Fishers window cleaning →</span></a>
-      <a class="loc sc" href="charleston/"><div class="eyebrow day">South Carolina</div><h3>Charleston</h3><p>Charleston and the Lowcountry communities around it.</p><span class="go">Charleston window cleaning →</span></a>
     </div>
   </div>
 </section>
