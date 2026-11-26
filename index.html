@@ -1030,6 +1030,22 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .cine-cap .eyebrow{background:rgba(255,211,92,.2);color:#ffd35c}
 .cine-cap p{color:rgba(255,255,255,.85)}
 @media (max-width:640px){.cine::after{display:none}.cine{border-radius:20px;background:#22252a}.cine-cap{position:static;padding:18px}.cine-cap h2{font-size:1.5rem}}
+
+.extras{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;margin-top:22px}
+@media (max-width:860px){.extras{grid-template-columns:1fr}}
+.extras article{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;padding:24px 22px;border-radius:22px;background:#fff;border:1px solid var(--line);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.extras article:hover{transform:translateY(-4px);box-shadow:0 30px 46px -32px rgba(34,37,42,.5)}
+.extras .x1{background:linear-gradient(150deg,#22252a,#3b4048);color:#fff;border:0}
+.extras .grade{display:grid;place-items:center;min-width:86px;height:86px;padding:0 12px;border-radius:20px;font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:.02em;background:linear-gradient(135deg,#eef1f4,#aeb6c0 55%,#e7ebef);color:#22252a;box-shadow:inset 0 0 0 1px rgba(255,255,255,.6);position:relative;overflow:hidden}
+.extras .x1 .grade::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);transform:skewX(-18deg);animation:shine2 4s ease-in-out infinite}
+.extras .x2 .grade{background:var(--skyl);color:var(--sky);box-shadow:none}
+.extras .grade svg{width:34px;height:34px}
+.extras small{font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+.extras .x1 small{color:#ffd35c}
+.extras h3{font-size:1.4rem;margin:4px 0 8px}
+.extras p{color:var(--muted)}
+.extras .x1 p{color:rgba(255,255,255,.82)}
+@media (max-width:520px){.extras article{grid-template-columns:1fr}.extras .grade{justify-self:start}}
 </style>
 </head>
 <body>

@@ -1032,6 +1032,22 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .cine-cap p{color:rgba(255,255,255,.85)}
 @media (max-width:640px){.cine::after{display:none}.cine{border-radius:20px;background:#22252a}.cine-cap{position:static;padding:18px}.cine-cap h2{font-size:1.5rem}}
 
+.extras{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;margin-top:22px}
+@media (max-width:860px){.extras{grid-template-columns:1fr}}
+.extras article{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;padding:24px 22px;border-radius:22px;background:#fff;border:1px solid var(--line);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.extras article:hover{transform:translateY(-4px);box-shadow:0 30px 46px -32px rgba(34,37,42,.5)}
+.extras .x1{background:linear-gradient(150deg,#22252a,#3b4048);color:#fff;border:0}
+.extras .grade{display:grid;place-items:center;min-width:86px;height:86px;padding:0 12px;border-radius:20px;font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:.02em;background:linear-gradient(135deg,#eef1f4,#aeb6c0 55%,#e7ebef);color:#22252a;box-shadow:inset 0 0 0 1px rgba(255,255,255,.6);position:relative;overflow:hidden}
+.extras .x1 .grade::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);transform:skewX(-18deg);animation:shine2 4s ease-in-out infinite}
+.extras .x2 .grade{background:var(--skyl);color:var(--sky);box-shadow:none}
+.extras .grade svg{width:34px;height:34px}
+.extras small{font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+.extras .x1 small{color:#ffd35c}
+.extras h3{font-size:1.4rem;margin:4px 0 8px}
+.extras p{color:var(--muted)}
+.extras .x1 p{color:rgba(255,255,255,.82)}
+@media (max-width:520px){.extras article{grid-template-columns:1fr}.extras .grade{justify-self:start}}
+
 /* location pages: their own header and color theme */
 .lhero{position:relative;overflow:hidden;isolation:isolate;padding:54px 0 64px;background:var(--hb)}
 .lhero::before{content:"";position:absolute;z-index:-1;width:min(700px,110vw);aspect-ratio:1;right:-16%;top:-30%;border-radius:50%;background:radial-gradient(circle,var(--hg),transparent 68%);animation:drift1 14s ease-in-out infinite alternate}
@@ -1177,7 +1193,10 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
         </tbody>
       </table>
     </div></div>
-    <p class="note">Interior glass and very heavy buildup may still get a hand squeegee and a mild cleaner. Pure water does the work on the outside of the house.</p>
+    <div class="extras">
+      <article class="x1"><span class="grade">#0000</span><div><small>For the stubborn stuff</small><h3>Quad-zero steel wool</h3><p>Some buildup won't rinse off, like hard water spots and baked-on grime. We work it loose with #0000 steel wool, the finest grade made. It's the best abrasive for glass: tough on what's stuck to it, and fine enough not to scratch standard window glass.</p></div></article>
+      <article class="x2"><span class="grade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v4H4zM12 9v6M9.500 21l1-6h3l1 6"/></svg></span><div><small>Inside the house</small><h3>Interior glass by hand</h3><p>Pure water does the work outside. Inside, we clean by hand with a squeegee and a mild cleaner.</p></div></article>
+    </div>
   </div>
 </section>
 
