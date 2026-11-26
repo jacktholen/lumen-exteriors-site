@@ -1000,6 +1000,38 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .often p{color:var(--muted)}.often .w p{color:rgba(255,255,255,.82)}
 @media (min-width:861px){.lhero.chs .wrap{grid-template-columns:.9fr 1.1fr}.lhero.chs .lphoto{order:-1}.lhero.chs .lphoto img{rotate:-2deg}.lhero.chs .nowcard{left:auto;right:-18px}.lhero.chs::before{right:auto;left:-16%}}
 
+/* three-stage filter diagram + meter proof */
+.stages{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:stretch}
+.stage{background:#fff;border:1px solid #e3edf5;border-radius:22px;padding:28px 22px;display:grid;gap:10px;justify-items:center;text-align:center;align-content:start;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.stage:hover{transform:translateY(-5px);box-shadow:0 30px 46px -30px var(--c)}
+.stage .ic{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--cb);color:var(--c);box-shadow:0 0 0 1.5px var(--c) inset;animation:floaty 6s ease-in-out infinite;animation-delay:var(--dl,0s)}
+.stage .ic svg{width:26px;height:26px}
+.stage small{font-weight:800;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ct)}
+.stage h3{font-size:1.35rem}
+.stage p{color:var(--muted);font-size:.98rem}
+.stage .tds{margin-top:6px;padding:8px 18px;border-radius:999px;background:var(--cb);color:var(--ct);font-family:var(--display);font-weight:800;box-shadow:0 0 0 1.5px var(--c) inset}
+.stage.done .tds{background:var(--c);color:#fff;animation:nowp 2.4s ease-in-out infinite}
+.sarrow{align-self:center;width:44px;height:14px;background:repeating-linear-gradient(90deg,var(--sky2) 0 8px,transparent 8px 14px);background-size:14px 3px;background-repeat:repeat-x;background-position:0 50%;position:relative;animation:sflow .7s linear infinite}
+.sarrow::after{content:"";position:absolute;right:-2px;top:50%;width:9px;height:9px;border-top:3px solid var(--sky2);border-right:3px solid var(--sky2);transform:translateY(-50%) rotate(45deg)}
+@keyframes sflow{to{background-position:14px 50%}}
+@media (max-width:860px){.stages{grid-template-columns:1fr}.sarrow{justify-self:center;transform:rotate(90deg);margin:8px 0}}
+.proof{margin-top:22px;display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(20px,4vw,48px);align-items:center;background:#22252a;color:#fff;border-radius:26px;padding:clamp(14px,2.4vw,24px);overflow:hidden}
+.proof video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:18px;background:#000}
+.proof .tx{display:grid;gap:12px;padding:8px clamp(4px,2vw,20px) 14px}
+.proof h3{font-size:clamp(1.6rem,3vw,2.2rem)}
+.proof p{color:rgba(255,255,255,.8)}
+.proof .big{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,6vw,4.2rem);line-height:1;color:#7fe0a0;letter-spacing:.02em}
+.proof .big span{font-size:.35em;color:rgba(255,255,255,.7);margin-left:8px;letter-spacing:.1em}
+@media (max-width:860px){.proof{grid-template-columns:1fr}}
+/* wide video on the main page */
+.cine{position:relative;border-radius:28px;overflow:hidden;background:#000;box-shadow:0 50px 90px -50px rgba(31,111,196,.7)}
+.cine video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.cine::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,20,28,.82) 0%,rgba(15,20,28,0) 52%);pointer-events:none}
+.cine-cap{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:clamp(18px,4vw,40px);color:#fff;display:grid;gap:8px;max-width:640px}
+.cine-cap .eyebrow{background:rgba(255,211,92,.2);color:#ffd35c}
+.cine-cap p{color:rgba(255,255,255,.85)}
+@media (max-width:640px){.cine::after{display:none}.cine{border-radius:20px;background:#22252a}.cine-cap{position:static;padding:18px}.cine-cap h2{font-size:1.5rem}}
+
 /* location pages: their own header and color theme */
 .lhero{position:relative;overflow:hidden;isolation:isolate;padding:54px 0 64px;background:var(--hb)}
 .lhero::before{content:"";position:absolute;z-index:-1;width:min(700px,110vw);aspect-ratio:1;right:-16%;top:-30%;border-radius:50%;background:radial-gradient(circle,var(--hg),transparent 68%);animation:drift1 14s ease-in-out infinite alternate}
@@ -1179,12 +1211,16 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
       <h2>From Indiana tap water to spot-free glass</h2>
       <p>Central Indiana's hard water is full of dissolved minerals, which is why hose water dries into white spots. Our filtration cart takes them out before the water ever touches your windows.</p>
     </div>
-    <div class="flow" aria-label="How tap water becomes pure water">
-      <div class="st"><span class="k">STEP 1</span><h3>Tap water in</h3><p>Hard water carries calcium, magnesium and other dissolved minerals.</p><div class="lvl">Minerals: high</div></div>
-      <div class="st"><span class="k">STEP 2</span><h3>Filter</h3><p>Sediment and carbon filters catch grit, rust and chlorine.</p><div class="lvl">Minerals: still high</div></div>
-      <div class="st"><span class="k">STEP 3</span><h3>Deionize</h3><p>Resin in the tall steel tank pulls out the dissolved minerals, leaving water close to zero dissolved solids.</p><div class="lvl">Minerals: near zero</div></div>
-      <div class="st"><span class="k">STEP 4</span><h3>Scrub and rinse</h3><p>Pure water flows through a soft brush on the pole. It loosens dirt, then rinses glass and frames.</p><div class="lvl">Soap used: none</div></div>
-      <div class="st"><span class="k">STEP 5</span><h3>Dries spot-free</h3><p>With no minerals or soap in the water, there's nothing left on the glass when it dries.</p><div class="lvl">Residue: none</div></div>
+    <div class="stages">
+      <article class="stage" style="--c:#e0802e;--cb:#fdefe2;--ct:#a3520f"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3.500 4.500h17l-6.500 8v6l-4 2v-8z"/></svg></div><small>Stage 1</small><h3>Sediment filter</h3><p>Catches the large particles, sediment and debris in raw tap water.</p><span class="tds">~300 TDS tap water</span></article>
+      <i class="sarrow" aria-hidden="true"></i>
+      <article class="stage" style="--c:#2f8fd0;--cb:#eaf5fe;--ct:#1f6fc4;--dl:-2s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg></div><small>Stage 2</small><h3>Carbon block filter</h3><p>Strips out chlorine, chemicals and dissolved organic compounds.</p><span class="tds">Chlorine removed</span></article>
+      <i class="sarrow" aria-hidden="true"></i>
+      <article class="stage done" style="--c:#2e9e5b;--cb:#e8f6ee;--ct:#1f7a43;--dl:-4s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2.500 5 13.500h6l-1 8 8-11h-6z"/></svg></div><small>Stage 3</small><h3>DI resin filter</h3><p>Deionization pulls out the last of the dissolved minerals, leaving pure water.</p><span class="tds">0 TDS ✓</span></article>
+    </div>
+    <div class="proof">
+      <video width="960" height="540" src="../work/tds-test.mp4" poster="../work/tds-test-poster.jpg" muted loop playsinline preload="none" data-auto aria-label="Testing the water from the pole with a TDS meter, which reads 0000 parts per million"></video>
+      <div class="tx"><div class="eyebrow">Tested on the job</div><div class="big">0000<span>PPM</span></div><h3>The meter reads zero</h3><p>TDS stands for total dissolved solids: the minerals that dry into spots. We test the water coming out of the pole with a meter, and it reads zero parts per million. Nothing in the water means nothing left on your glass.</p></div>
     </div>
     <p class="note">Interior glass and very heavy buildup may still get a hand squeegee and a mild cleaner. Pure water does the work on the outside of the house.</p>
   </div>
