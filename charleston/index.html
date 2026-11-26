@@ -951,6 +951,55 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .wi{--c:#a9dcf7;--t:#123a5c;--ct:#1f6fc4;--cb:#eaf5fe}
 @media (max-width:1100px) and (min-width:861px){.wins{grid-template-columns:1fr 1fr}}
 
+/* ---- page-specific building blocks ---- */
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:s3}
+.steps3 article{position:relative;padding:28px 24px;border-radius:22px;background:#fff;border:1px solid var(--line);display:grid;gap:8px;align-content:start;counter-increment:s3;transition:transform .3s,box-shadow .3s}
+.steps3 article::before{content:counter(s3);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#ffcf4a,#f5b81f);font-family:var(--display);font-weight:800;font-size:1.3rem;color:#221a05;margin-bottom:6px}
+.steps3 article:nth-child(2)::before{background:linear-gradient(135deg,#8fcdf6,#2f8fd0);color:#fff}
+.steps3 article:hover{transform:translateY(-4px);box-shadow:0 30px 46px -32px rgba(34,37,42,.5)}
+.steps3 p{color:var(--muted)}
+@media (max-width:760px){.steps3{grid-template-columns:1fr}}
+.elems{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:1000px){.elems{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.elems{grid-template-columns:1fr}}
+.elem{position:relative;overflow:hidden;padding:24px 22px;border-radius:22px;background:var(--cb);display:grid;gap:10px;align-content:start;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.elem:hover{transform:translateY(-5px) rotate(-.6deg);box-shadow:0 30px 46px -32px var(--c)}
+.elem .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:var(--c);color:var(--t,#fff);animation:floaty 6s ease-in-out infinite;animation-delay:var(--dl,0s)}
+.elem .ic svg{width:28px;height:28px}
+.elem h3{font-size:1.3rem}
+.elem p{color:#4d4a42;font-size:.98rem}
+.elem small{font-weight:800;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ct)}
+.coast{position:relative;background:linear-gradient(180deg,#0f2a47,#17497c);color:#fff;padding:120px 0 96px;overflow:hidden}
+.coast .waves{position:absolute;left:0;top:-1px;width:200%;height:60px;animation:wave 14s linear infinite}
+.coast .waves.b{opacity:.55;animation-duration:22s;animation-direction:reverse;top:10px;z-index:0}
+.coast .waves{z-index:1}
+@keyframes wave{to{transform:translateX(-50%)}}
+.coast .sec-head p{color:rgba(255,255,255,.8)}
+.coast .eyebrow{background:rgba(255,255,255,.12)!important;color:#bfe6ff!important}
+.coastlist{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;counter-reset:cl}
+.coastlist article{display:grid;grid-template-columns:auto 1fr;gap:4px 20px;padding:26px 0;border-top:1px solid rgba(255,255,255,.16);counter-increment:cl}
+.coastlist article::before{content:"0" counter(cl);grid-row:1/3;font-family:var(--display);font-weight:800;font-size:2.6rem;line-height:1;background:linear-gradient(160deg,#bfe6ff,#ffd35c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.coastlist h3{font-size:1.4rem}
+.coastlist p{color:rgba(255,255,255,.78)}
+.coast .close{margin-top:30px;padding:18px 22px;border-radius:16px;background:rgba(255,255,255,.1);font-weight:600;font-size:1.05rem}
+@media (max-width:760px){.coastlist{grid-template-columns:1fr}.coast{padding:96px 0 72px}}
+.wins.rows{grid-template-columns:1fr;gap:10px}
+.wins.rows .win{grid-template-columns:minmax(220px,300px) 1fr;grid-template-rows:auto;border-radius:20px}
+.wins.rows .win-top{align-content:center;padding:20px 22px}
+.wins.rows .win-top b{font-size:clamp(1.5rem,2.4vw,1.9rem)}
+.wins.rows .win-body{grid-template-columns:1fr auto;align-items:center;gap:16px;padding:18px 22px}
+.wins.rows .win:hover{transform:translateX(6px)}
+@media (max-width:760px){.wins.rows .win{grid-template-columns:1fr}.wins.rows .win-body{grid-template-columns:1fr}}
+.often{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:44px}
+@media (max-width:760px){.often{grid-template-columns:1fr}}
+.often article{padding:26px 24px;border-radius:22px;display:grid;gap:8px;background:var(--skyl);border:1px solid #d5e8f8}
+.often article.w{background:linear-gradient(150deg,#0f2a47,#1f6fc4);color:#fff;border:0}
+.often small{font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+.often .w small{color:#bfe6ff}
+.often b{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3vw,2.2rem);line-height:1.05}
+.often p{color:var(--muted)}.often .w p{color:rgba(255,255,255,.82)}
+@media (min-width:861px){.lhero.chs .wrap{grid-template-columns:.9fr 1.1fr}.lhero.chs .lphoto{order:-1}.lhero.chs .lphoto img{rotate:-2deg}.lhero.chs .nowcard{left:auto;right:-18px}.lhero.chs::before{right:auto;left:-16%}}
+
 /* location pages: their own header and color theme */
 .lhero{position:relative;overflow:hidden;isolation:isolate;padding:54px 0 64px;background:var(--hb)}
 .lhero::before{content:"";position:absolute;z-index:-1;width:min(700px,110vw);aspect-ratio:1;right:-16%;top:-30%;border-radius:50%;background:radial-gradient(circle,var(--hg),transparent 68%);animation:drift1 14s ease-in-out infinite alternate}
@@ -1007,10 +1056,10 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
   <div class="wrap">
     <a class="brand" href="../" aria-label="Lumen Exteriors home"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="8.2" fill="#e8a51a"/><g stroke="#e8a51a" stroke-width="2.4" stroke-linecap="round"><path d="M20 3.5v6M20 30.5v6M3.5 20h6M30.5 20h6M8.3 8.3l4.3 4.3M27.4 27.4l4.3 4.3M8.3 31.7l4.3-4.3M27.4 12.6l4.3-4.3"/></g></svg><span class="wm"><b>LUMEN</b><small>EXTERIORS</small></span></a>
     <ul id="navList">
+      <li><a href="#coast">The coast</a></li>
       <li><a href="#seasons">When to clean</a></li>
-      <li><a href="#quote">Prices and quote</a></li>
-      <li><a href="#windows">How it's done</a></li>
       <li><a href="#work">Our work</a></li>
+      <li><a href="#quote">Prices and quote</a></li>
       <li><a href="../#about">About Jack</a></li>
       <li><a href="../fishers/">Fishers, IN</a></li>
     </ul>
@@ -1040,6 +1089,25 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
 
 <div class="glance"><div class="wrap"><div><small>Home base</small><b>Charleston, SC</b></div><div><small>We cover</small><b>The Lowcountry</b></div><div><small>Best months</small><b>Apr, May, Oct, Nov</b></div><div><small>On the water</small><b>Every few months</b></div></div></div>
 
+<section id="coast" class="coast">
+  <svg class="waves" viewBox="0 0 2400 60" preserveAspectRatio="none" aria-hidden="true"><path fill="#ffd35c" d="M0 0h2400v22c-100 30-200 30-300 0s-200-30-300 0-200 30-300 0-200-30-300 0-200 30-300 0-200-30-300 0-200 30-300 0-200-30-300 0z"/></svg>
+  <svg class="waves b" viewBox="0 0 2400 60" preserveAspectRatio="none" aria-hidden="true"><path fill="#7cc4f2" d="M0 0h2400v22c-100 30-200 30-300 0s-200-30-300 0-200 30-300 0-200-30-300 0-200 30-300 0-200-30-300 0-200 30-300 0-200-30-300 0z"/></svg>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Lowcountry conditions</div>
+      <h2>What the coast does to your glass</h2>
+      <p>Living near the water is hard on windows. Four things do most of it.</p>
+    </div>
+    <div class="coastlist">
+      <article><h3>Salt air</h3><p>The sea breeze carries salt inland. It dries as a hazy film, and builds fastest on windows that face the water.</p></article>
+      <article><h3>Pollen season</h3><p>Each spring, pine and oak pollen coats everything in yellow, glass and screens included.</p></article>
+      <article><h3>Humidity and mildew</h3><p>Warm, damp air lets mildew and algae get started on frames, sills and tracks.</p></article>
+      <article><h3>Storm season</h3><p>Summer and fall storms throw rain, debris and more salt at the glass.</p></article>
+    </div>
+    <p class="close">Pure water rinses all of it off, and leaves no soap film behind for the next layer to stick to.</p>
+  </div>
+</section>
+
 <section id="seasons">
   <div class="wrap">
     <div class="sec-head">
@@ -1048,9 +1116,56 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
       <p>Lowcountry glass gets something new in every season. The two cleanings that matter most come after the spring pollen and after storm season.</p>
     </div>
     <div class="yr" id="yrline" role="img" aria-label="Cleaning times: Spring cleaning April – May, Summer cleaning June – August, Fall cleaning October – November, Winter cleaning December – February"><div class="yr-m" aria-hidden="true"><span class="on">Jan</span><span class="on">Feb</span><span class="on">Mar</span><span class="on">Apr</span><span class="on">May</span><span class="on">Jun</span><span class="on">Jul</span><span class="on">Aug</span><span class="on">Sep</span><span class="on">Oct</span><span class="on">Nov</span><span class="on">Dec</span></div><div class="yr-track"><div class="yr-b"><a href="#win-wi" style="grid-column:1/3;--t:#123a5c">Winter</a><a href="#win-sp" style="grid-column:3/6">Spring</a><a href="#win-su" style="grid-column:6/9;--t:#221a05">Summer</a><a href="#win-fa" style="grid-column:9/12">Fall</a></div><i class="yr-now" id="yrNow"></i></div></div>
-    <div class="wins" style="--n:4"><article class="win sp" id="win-sp" data-a="3" data-b="4"><div class="win-top"><span class="state"></span><small>Spring cleaning</small><b>April – May</b></div><div class="win-body"><p>Washes off the yellow pine and oak pollen once the heavy drop has settled.</p><span class="chip">Recommended for every home</span></div></article><article class="win su" id="win-su" data-a="5" data-b="7"><div class="win-top"><span class="state"></span><small>Summer cleaning</small><b>June – August</b></div><div class="win-body"><p>Rinses off humidity film, storm spotting and the mildew that starts on frames and sills. Mornings beat the heat.</p><span class="chip">A good time for a rinse</span></div></article><article class="win fa" id="win-fa" data-a="9" data-b="10"><div class="win-top"><span class="state"></span><small>Fall cleaning</small><b>October – November</b></div><div class="win-body"><p>Clears salt, wind-blown debris and rain spotting once storm season winds down, before the holidays.</p><span class="chip">Recommended for every home</span></div></article><article class="win wi" id="win-wi" data-a="11" data-b="1"><div class="win-top"><span class="state"></span><small>Winter cleaning</small><b>December – February</b></div><div class="win-body"><p>Clears salt film and light dust. Winters here are mild enough for outside glass.</p><span class="chip">A good time for a rinse</span></div></article></div>
+    <div class="wins rows" style="--n:4"><article class="win sp" id="win-sp" data-a="3" data-b="4"><div class="win-top"><span class="state"></span><small>Spring cleaning</small><b>April – May</b></div><div class="win-body"><p>Washes off the yellow pine and oak pollen once the heavy drop has settled.</p><span class="chip">Recommended for every home</span></div></article><article class="win su" id="win-su" data-a="5" data-b="7"><div class="win-top"><span class="state"></span><small>Summer cleaning</small><b>June – August</b></div><div class="win-body"><p>Rinses off humidity film, storm spotting and the mildew that starts on frames and sills. Mornings beat the heat.</p><span class="chip">A good time for a rinse</span></div></article><article class="win fa" id="win-fa" data-a="9" data-b="10"><div class="win-top"><span class="state"></span><small>Fall cleaning</small><b>October – November</b></div><div class="win-body"><p>Clears salt, wind-blown debris and rain spotting once storm season winds down, before the holidays.</p><span class="chip">Recommended for every home</span></div></article><article class="win wi" id="win-wi" data-a="11" data-b="1"><div class="win-top"><span class="state"></span><small>Winter cleaning</small><b>December – February</b></div><div class="win-body"><p>Clears salt film and light dust. Winters here are mild enough for outside glass.</p><span class="chip">A good time for a rinse</span></div></article></div>
     <p class="offnote">Homes on the water or the marsh collect salt faster and often want a cleaning every few months.</p>
-    
+    <div class="often">
+      <article><small>Most homes</small><b>Twice a year</b><p>Once in April or May after the pollen, and once in October or November after storm season.</p></article>
+      <article class="w"><small>On the water or the marsh</small><b>Every few months</b><p>Salt builds up faster near the ocean, the harbor and the marsh, so the glass needs rinsing more often.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="windows" class="dayband">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow day">Why pure water</div>
+      <h2>No soap film for salt and pollen to stick to</h2>
+      <p>Spray cleaner leaves a thin film behind when it dries. On the coast, that film gives salt and pollen something to hold on to. Purified water has nothing left in it, so it dries clear and leaves nothing behind.</p>
+    </div>
+    <div class="compare"><div class="compare-wrap">
+      <table>
+        <thead><tr><th scope="col"></th><th scope="col">Spray cleaner and towels</th><th scope="col" class="us">Lumen pure-water system</th></tr></thead>
+        <tbody>
+          <tr><td>What's left on the glass</td><td><span class="x">A thin film of cleaner that can streak in direct sun</span></td><td class="us"><span class="y">Nothing. Pure water dries clear</span></td></tr>
+          <tr><td>How long it stays clean</td><td><span class="x">Leftover film can hold dust and pollen</span></td><td class="us"><span class="y">No residue for dirt to cling to</span></td></tr>
+          <tr><td>Frames and sills</td><td><span class="x">Often skipped, or wiped with a dirty towel</span></td><td class="us"><span class="y">Brushed and rinsed with the glass</span></td></tr>
+          <tr><td>Upper-story windows</td><td><span class="x">Ladders against siding and in flower beds</span></td><td class="us"><span class="y">Cleaned from the ground with the pole</span></td></tr>
+          <tr><td>Chemicals</td><td><span class="x">Ammonia or soap drips onto plants and patios</span></td><td class="us"><span class="y">Just water, safe for plants, pets and kids</span></td></tr>
+          <tr><td>Lint and smudges</td><td><span class="x">Paper towels can leave lint and swirl marks</span></td><td class="us"><span class="y">No towels touch the outside glass</span></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+    <p class="note">Interior glass and very heavy buildup may still get a hand squeegee and a mild cleaner. Pure water does the work on the outside of the house.</p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Our work</div>
+      <h2>Waterfront glass is our kind of work</h2>
+      <p>Real photos and videos from our own jobs, including lakefront homes in Indiana with big glass facing the water. Tap any one to see it up close.</p>
+    </div>
+    <div class="work">
+      <button class="tile" data-w="2" aria-label="Open: Arched lakefront windows"><img width="820" height="1093" src="../work/arched-lakefront-sm.jpg" alt="Arched lakefront windows" loading="lazy"><span class="wcap">Arched lakefront windows</span></button>
+      <button class="tile" data-w="1" aria-label="Open: Lakefront glass railing"><video width="720" height="1280" src="../work/glass-railing.mp4" poster="../work/glass-railing-poster.jpg" muted loop playsinline preload="none" data-auto aria-hidden="true"></video><span class="play">Video</span><span class="wcap">Lakefront glass railing</span></button>
+      <button class="tile" data-w="5" aria-label="Open: Lakefront deck windows"><video width="720" height="1280" src="../work/lake-deck.mp4" poster="../work/lake-deck-poster.jpg" muted loop playsinline preload="none" data-auto aria-hidden="true"></video><span class="play">Video</span><span class="wcap">Lakefront deck windows</span></button>
+      <button class="tile" data-w="6" aria-label="Open: Lakeside windows"><img width="820" height="1093" src="../work/lake-windows-sm.jpg" alt="Lakeside windows" loading="lazy"><span class="wcap">Lakeside windows</span></button>
+      <button class="tile" data-w="9" aria-label="Open: Lower-level lake windows"><img width="820" height="1093" src="../work/lake-reflection-sm.jpg" alt="Lower-level lake windows" loading="lazy"><span class="wcap">Lower-level lake windows</span></button>
+      <button class="tile" data-w="12" aria-label="Open: Three-story lakefront home"><img width="619" height="1100" src="../work/lakefront-sm.jpg" alt="Three-story lakefront home" loading="lazy"><span class="wcap">Three-story lakefront home</span></button>
+      <button class="tile" data-w="0" aria-label="Open: Modern entry, floor-to-ceiling glass"><img width="820" height="1093" src="../work/modern-entry-sm.jpg" alt="Modern entry, floor-to-ceiling glass" loading="lazy"><span class="wcap">Modern entry, floor-to-ceiling glass</span></button>
+      <button class="tile" data-w="3" aria-label="Open: Commercial glass wall"><img width="619" height="1100" src="../work/commercial-pole-sm.jpg" alt="Commercial glass wall" loading="lazy"><span class="wcap">Commercial glass wall</span></button>
+    </div>
   </div>
 </section>
 
@@ -1099,100 +1214,18 @@ body.fish .contact-band::before{background:linear-gradient(100deg,rgba(24,22,16,
   </div>
 </section>
 
-<section id="windows" class="dayband">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow day">How it's done</div>
-      <h2>Spotless glass with pure water</h2>
-      <p>Tap water and spray cleaners leave something behind when they dry. Tap water carries dissolved minerals, and glass cleaner leaves a thin film of soap. Pure water has nothing left in it, so it dries clear.</p>
-    </div>
-    <div class="split">
-      <div class="ph"><img width="619" height="1100" src="../work/pure-water-pole-sm.jpg" alt="Lumen Exteriors pure-water filtration cart with a water-fed pole cleaning a window" loading="lazy"></div>
-      <div class="tx"><div>
-        <div class="eyebrow day">How we clean high glass</div>
-        <h3 style="font-size:2rem">Pure water reaches every story</h3>
-        <p>Our filtration cart strips the minerals out of tap water. A soft brush on a long pole scrubs the glass and frames, then a pure-water rinse dries clear with no soap film or spots.</p>
-        <p>Upper-story windows get cleaned from the ground, so there are no ladders leaning on your siding or crushing your landscaping.</p>
-        <div class="facts">
-          <div><b>Spot-free</b><span>Purified water dries clear</span></div>
-          <div><b>No ladders</b><span>High glass from the ground</span></div>
-          <div><b>Frames too</b><span>Brush cleans the whole window</span></div>
-        </div>
-      </div></div>
-    </div>
-    <div class="flow" aria-label="How tap water becomes pure water">
-      <div class="st"><span class="k">STEP 1</span><h3>Tap water in</h3><p>Hard water carries calcium, magnesium and other dissolved minerals.</p><div class="lvl">Minerals: high</div></div>
-      <div class="st"><span class="k">STEP 2</span><h3>Filter</h3><p>Sediment and carbon filters catch grit, rust and chlorine.</p><div class="lvl">Minerals: still high</div></div>
-      <div class="st"><span class="k">STEP 3</span><h3>Deionize</h3><p>Resin in the tall steel tank pulls out the dissolved minerals, leaving water close to zero dissolved solids.</p><div class="lvl">Minerals: near zero</div></div>
-      <div class="st"><span class="k">STEP 4</span><h3>Scrub and rinse</h3><p>Pure water flows through a soft brush on the pole. It loosens dirt, then rinses glass and frames.</p><div class="lvl">Soap used: none</div></div>
-      <div class="st"><span class="k">STEP 5</span><h3>Dries spot-free</h3><p>With no minerals or soap in the water, there's nothing left on the glass when it dries.</p><div class="lvl">Residue: none</div></div>
-    </div>
-
-
-    <div class="compare"><div class="compare-wrap">
-      <table>
-        <thead><tr><th scope="col"></th><th scope="col">Spray cleaner and towels</th><th scope="col" class="us">Lumen pure-water system</th></tr></thead>
-        <tbody>
-          <tr><td>What's left on the glass</td><td><span class="x">A thin film of cleaner that can streak in direct sun</span></td><td class="us"><span class="y">Nothing. Pure water dries clear</span></td></tr>
-          <tr><td>How long it stays clean</td><td><span class="x">Leftover film can hold dust and pollen</span></td><td class="us"><span class="y">No residue for dirt to cling to</span></td></tr>
-          <tr><td>Frames and sills</td><td><span class="x">Often skipped, or wiped with a dirty towel</span></td><td class="us"><span class="y">Brushed and rinsed with the glass</span></td></tr>
-          <tr><td>Upper-story windows</td><td><span class="x">Ladders against siding and in flower beds</span></td><td class="us"><span class="y">Cleaned from the ground with the pole</span></td></tr>
-          <tr><td>Chemicals</td><td><span class="x">Ammonia or soap drips onto plants and patios</span></td><td class="us"><span class="y">Just water, safe for plants, pets and kids</span></td></tr>
-          <tr><td>Lint and smudges</td><td><span class="x">Paper towels can leave lint and swirl marks</span></td><td class="us"><span class="y">No towels touch the outside glass</span></td></tr>
-        </tbody>
-      </table>
-    </div></div>
-
-    <p class="note">Interior glass and very heavy buildup may still get a hand squeegee and a mild cleaner. Pure water does the work on the outside of the house.</p>
-
-  </div>
-</section>
-
-<section id="work">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Our work</div>
-      <h2>Recent jobs</h2>
-      <p>Real photos and videos from our own jobs. Tap any one to see it up close.</p>
-    </div>
-    <div class="work">
-      <button class="tile" data-w="0" aria-label="Open: Modern entry, floor-to-ceiling glass"><img width="820" height="1093" src="../work/modern-entry-sm.jpg" alt="Modern entry, floor-to-ceiling glass" loading="lazy"><span class="wcap">Modern entry, floor-to-ceiling glass</span></button>
-      <button class="tile" data-w="1" aria-label="Open: Lakefront glass railing"><video width="720" height="1280" src="../work/glass-railing.mp4" poster="../work/glass-railing-poster.jpg" muted loop playsinline preload="none" data-auto aria-hidden="true"></video><span class="play">Video</span><span class="wcap">Lakefront glass railing</span></button>
-      <button class="tile" data-w="2" aria-label="Open: Arched lakefront windows"><img width="820" height="1093" src="../work/arched-lakefront-sm.jpg" alt="Arched lakefront windows" loading="lazy"><span class="wcap">Arched lakefront windows</span></button>
-      <button class="tile" data-w="3" aria-label="Open: Commercial glass wall"><img width="619" height="1100" src="../work/commercial-pole-sm.jpg" alt="Commercial glass wall" loading="lazy"><span class="wcap">Commercial glass wall</span></button>
-      <button class="tile" data-w="4" aria-label="Open: Front picture window"><img width="820" height="1093" src="../work/shutter-window-sm.jpg" alt="Front picture window" loading="lazy"><span class="wcap">Front picture window</span></button>
-      <button class="tile" data-w="5" aria-label="Open: Lakefront deck windows"><video width="720" height="1280" src="../work/lake-deck.mp4" poster="../work/lake-deck-poster.jpg" muted loop playsinline preload="none" data-auto aria-hidden="true"></video><span class="play">Video</span><span class="wcap">Lakefront deck windows</span></button>
-      <button class="tile" data-w="6" aria-label="Open: Lakeside windows"><img width="820" height="1093" src="../work/lake-windows-sm.jpg" alt="Lakeside windows" loading="lazy"><span class="wcap">Lakeside windows</span></button>
-      <button class="tile" data-w="7" aria-label="Open: Covered patio windows and door"><img width="820" height="615" src="../work/patio-wide-sm.jpg" alt="Covered patio windows and door" loading="lazy"><span class="wcap">Covered patio windows and door</span></button>
-      <button class="tile" data-w="8" aria-label="Open: Three stories with a bay window"><img width="820" height="1093" src="../work/bay-three-story-sm.jpg" alt="Three stories with a bay window" loading="lazy"><span class="wcap">Three stories with a bay window</span></button>
-      <button class="tile" data-w="9" aria-label="Open: Lower-level lake windows"><img width="820" height="1093" src="../work/lake-reflection-sm.jpg" alt="Lower-level lake windows" loading="lazy"><span class="wcap">Lower-level lake windows</span></button>
-      <button class="tile" data-w="10" aria-label="Open: Storefront and commercial glass"><video width="720" height="1280" src="../work/storefront.mp4" poster="../work/storefront-poster.jpg" muted loop playsinline preload="none" data-auto aria-hidden="true"></video><span class="play">Video</span><span class="wcap">Storefront and commercial glass</span></button>
-      <button class="tile" data-w="11" aria-label="Open: Two-story brick home"><img width="820" height="1093" src="../work/brick-two-story-sm.jpg" alt="Two-story brick home" loading="lazy"><span class="wcap">Two-story brick home</span></button>
-      <button class="tile" data-w="12" aria-label="Open: Three-story lakefront home"><img width="619" height="1100" src="../work/lakefront-sm.jpg" alt="Three-story lakefront home" loading="lazy"><span class="wcap">Three-story lakefront home</span></button>
-      <button class="tile" data-w="13" aria-label="Open: Front porch home"><img width="820" height="1093" src="../work/front-porch-sm.jpg" alt="Front porch home" loading="lazy"><span class="wcap">Front porch home</span></button>
-      <button class="tile" data-w="14" aria-label="Open: French doors and sidelights"><img width="820" height="1093" src="../work/french-doors-sm.jpg" alt="French doors and sidelights" loading="lazy"><span class="wcap">French doors and sidelights</span></button>
-      <button class="tile" data-w="15" aria-label="Open: Side windows, both levels"><img width="820" height="1093" src="../work/brick-side-sm.jpg" alt="Side windows, both levels" loading="lazy"><span class="wcap">Side windows, both levels</span></button>
-      <button class="tile" data-w="16" aria-label="Open: Bay windows, two stories"><img width="820" height="1093" src="../work/bay-windows-sm.jpg" alt="Bay windows, two stories" loading="lazy"><span class="wcap">Bay windows, two stories</span></button>
-      <button class="tile" data-w="17" aria-label="Open: Pure-water pole system"><img width="619" height="1100" src="../work/pure-water-pole-sm.jpg" alt="Pure-water pole system" loading="lazy"><span class="wcap">Pure-water pole system</span></button>
-    </div>
-  </div>
-</section>
-
 <section id="faq" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">FAQ</div>
-      <h2>Common questions</h2>
+      <h2>Charleston questions</h2>
     </div>
     <div class="faq">
-<div class="faq">
-      <details><summary>How often should I have my windows cleaned?</summary><p>Most Charleston homes look their best with a cleaning in spring, after the pollen, and another in fall. Homes near the water, construction or lots of trees may want it more often.</p></details>
-      <details><summary>Do I need to be home?</summary><p>For exterior-only cleanings, usually not, as long as we can reach the windows. For interior work, someone needs to be home to let us in.</p></details>
-      <details><summary>What if it rains after you clean?</summary><p>Rain on clean glass dries much clearer than rain on dirty glass, because there's no dust or film for the water to carry around.</p></details>
-      <details><summary>Can you remove hard water stains?</summary><p>Light spotting usually comes off in a normal cleaning. Heavy, long-standing mineral stains can need extra treatment, so mention them when you reach out and we'll take a look.</p></details>
       <details><summary>I live near the water. How often should I clean?</summary><p>Salt spray builds up faster on homes near the ocean, the harbor or the marsh. Many waterfront homeowners choose a cleaning every few months instead of twice a year.</p></details>
+      <details><summary>Should I wait until pollen season is over?</summary><p>For your main spring cleaning, yes. Mid-April through May, after the heavy pollen has settled, gives you the longest stretch of clear glass.</p></details>
+      <details><summary>What if it rains after you clean?</summary><p>Rain on clean glass dries much clearer than rain on dirty glass, because there's no dust or film for the water to carry around.</p></details>
+      <details><summary>Is it safe for my plants and landscaping?</summary><p>Yes. The outside of the house is cleaned with purified water only, so there is no soap or ammonia dripping onto plants, patios or pets.</p></details>
       <details><summary>How do I get a price?</summary><p>Call or text (463) 234-9179 with your address and what you'd like cleaned. We'll get back to you with a clear price.</p></details>
-    
     </div>
   </div>
 </section>

@@ -949,6 +949,55 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 .yr-b a,.yr.in .yr-b a{background:none;box-shadow:none;transform:none;margin:0;border-radius:0;transition:none}
 .wi{--c:#a9dcf7;--t:#123a5c;--ct:#1f6fc4;--cb:#eaf5fe}
 @media (max-width:1100px) and (min-width:861px){.wins{grid-template-columns:1fr 1fr}}
+
+/* ---- page-specific building blocks ---- */
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:s3}
+.steps3 article{position:relative;padding:28px 24px;border-radius:22px;background:#fff;border:1px solid var(--line);display:grid;gap:8px;align-content:start;counter-increment:s3;transition:transform .3s,box-shadow .3s}
+.steps3 article::before{content:counter(s3);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#ffcf4a,#f5b81f);font-family:var(--display);font-weight:800;font-size:1.3rem;color:#221a05;margin-bottom:6px}
+.steps3 article:nth-child(2)::before{background:linear-gradient(135deg,#8fcdf6,#2f8fd0);color:#fff}
+.steps3 article:hover{transform:translateY(-4px);box-shadow:0 30px 46px -32px rgba(34,37,42,.5)}
+.steps3 p{color:var(--muted)}
+@media (max-width:760px){.steps3{grid-template-columns:1fr}}
+.elems{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:1000px){.elems{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.elems{grid-template-columns:1fr}}
+.elem{position:relative;overflow:hidden;padding:24px 22px;border-radius:22px;background:var(--cb);display:grid;gap:10px;align-content:start;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.elem:hover{transform:translateY(-5px) rotate(-.6deg);box-shadow:0 30px 46px -32px var(--c)}
+.elem .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:var(--c);color:var(--t,#fff);animation:floaty 6s ease-in-out infinite;animation-delay:var(--dl,0s)}
+.elem .ic svg{width:28px;height:28px}
+.elem h3{font-size:1.3rem}
+.elem p{color:#4d4a42;font-size:.98rem}
+.elem small{font-weight:800;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ct)}
+.coast{position:relative;background:linear-gradient(180deg,#0f2a47,#17497c);color:#fff;padding:120px 0 96px;overflow:hidden}
+.coast .waves{position:absolute;left:0;top:-1px;width:200%;height:60px;animation:wave 14s linear infinite}
+.coast .waves.b{opacity:.55;animation-duration:22s;animation-direction:reverse;top:10px;z-index:0}
+.coast .waves{z-index:1}
+@keyframes wave{to{transform:translateX(-50%)}}
+.coast .sec-head p{color:rgba(255,255,255,.8)}
+.coast .eyebrow{background:rgba(255,255,255,.12)!important;color:#bfe6ff!important}
+.coastlist{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;counter-reset:cl}
+.coastlist article{display:grid;grid-template-columns:auto 1fr;gap:4px 20px;padding:26px 0;border-top:1px solid rgba(255,255,255,.16);counter-increment:cl}
+.coastlist article::before{content:"0" counter(cl);grid-row:1/3;font-family:var(--display);font-weight:800;font-size:2.6rem;line-height:1;background:linear-gradient(160deg,#bfe6ff,#ffd35c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.coastlist h3{font-size:1.4rem}
+.coastlist p{color:rgba(255,255,255,.78)}
+.coast .close{margin-top:30px;padding:18px 22px;border-radius:16px;background:rgba(255,255,255,.1);font-weight:600;font-size:1.05rem}
+@media (max-width:760px){.coastlist{grid-template-columns:1fr}.coast{padding:96px 0 72px}}
+.wins.rows{grid-template-columns:1fr;gap:10px}
+.wins.rows .win{grid-template-columns:minmax(220px,300px) 1fr;grid-template-rows:auto;border-radius:20px}
+.wins.rows .win-top{align-content:center;padding:20px 22px}
+.wins.rows .win-top b{font-size:clamp(1.5rem,2.4vw,1.9rem)}
+.wins.rows .win-body{grid-template-columns:1fr auto;align-items:center;gap:16px;padding:18px 22px}
+.wins.rows .win:hover{transform:translateX(6px)}
+@media (max-width:760px){.wins.rows .win{grid-template-columns:1fr}.wins.rows .win-body{grid-template-columns:1fr}}
+.often{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:44px}
+@media (max-width:760px){.often{grid-template-columns:1fr}}
+.often article{padding:26px 24px;border-radius:22px;display:grid;gap:8px;background:var(--skyl);border:1px solid #d5e8f8}
+.often article.w{background:linear-gradient(150deg,#0f2a47,#1f6fc4);color:#fff;border:0}
+.often small{font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+.often .w small{color:#bfe6ff}
+.often b{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3vw,2.2rem);line-height:1.05}
+.often p{color:var(--muted)}.often .w p{color:rgba(255,255,255,.82)}
+@media (min-width:861px){.lhero.chs .wrap{grid-template-columns:.9fr 1.1fr}.lhero.chs .lphoto{order:-1}.lhero.chs .lphoto img{rotate:-2deg}.lhero.chs .nowcard{left:auto;right:-18px}.lhero.chs::before{right:auto;left:-16%}}
 </style>
 </head>
 <body>
@@ -1046,11 +1095,25 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
   </div>
 </section>
 
+<section id="how-it-works" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">How it works</div>
+      <h2>Three steps to clear glass</h2>
+    </div>
+    <div class="steps3">
+      <article><h3>Text or call</h3><p>Send your address and what you'd like cleaned to (463) 234-9179.</p></article>
+      <article><h3>Get a clear price</h3><p>We get back to you with a price, so you know the cost before anything is booked.</p></article>
+      <article><h3>We clean</h3><p>For outside-only jobs you usually don't need to be home, as long as we can reach the windows.</p></article>
+    </div>
+  </div>
+</section>
+
 <section id="work" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Our work</div>
-      <h2>Recent jobs</h2>
+      <h2>A few recent jobs</h2>
       <p>Real photos and videos from our own jobs. Tap any one to see it up close.</p>
     </div>
     <div class="work">
@@ -1058,20 +1121,10 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
       <button class="tile" data-w="1" aria-label="Open: Lakefront glass railing"><video width="720" height="1280" src="work/glass-railing.mp4" poster="work/glass-railing-poster.jpg" muted loop playsinline preload="none" data-auto aria-hidden="true"></video><span class="play">Video</span><span class="wcap">Lakefront glass railing</span></button>
       <button class="tile" data-w="2" aria-label="Open: Arched lakefront windows"><img width="820" height="1093" src="work/arched-lakefront-sm.jpg" alt="Arched lakefront windows" loading="lazy"><span class="wcap">Arched lakefront windows</span></button>
       <button class="tile" data-w="3" aria-label="Open: Commercial glass wall"><img width="619" height="1100" src="work/commercial-pole-sm.jpg" alt="Commercial glass wall" loading="lazy"><span class="wcap">Commercial glass wall</span></button>
-      <button class="tile" data-w="4" aria-label="Open: Front picture window"><img width="820" height="1093" src="work/shutter-window-sm.jpg" alt="Front picture window" loading="lazy"><span class="wcap">Front picture window</span></button>
-      <button class="tile" data-w="5" aria-label="Open: Lakefront deck windows"><video width="720" height="1280" src="work/lake-deck.mp4" poster="work/lake-deck-poster.jpg" muted loop playsinline preload="none" data-auto aria-hidden="true"></video><span class="play">Video</span><span class="wcap">Lakefront deck windows</span></button>
-      <button class="tile" data-w="6" aria-label="Open: Lakeside windows"><img width="820" height="1093" src="work/lake-windows-sm.jpg" alt="Lakeside windows" loading="lazy"><span class="wcap">Lakeside windows</span></button>
-      <button class="tile" data-w="7" aria-label="Open: Covered patio windows and door"><img width="820" height="615" src="work/patio-wide-sm.jpg" alt="Covered patio windows and door" loading="lazy"><span class="wcap">Covered patio windows and door</span></button>
-      <button class="tile" data-w="8" aria-label="Open: Three stories with a bay window"><img width="820" height="1093" src="work/bay-three-story-sm.jpg" alt="Three stories with a bay window" loading="lazy"><span class="wcap">Three stories with a bay window</span></button>
-      <button class="tile" data-w="9" aria-label="Open: Lower-level lake windows"><img width="820" height="1093" src="work/lake-reflection-sm.jpg" alt="Lower-level lake windows" loading="lazy"><span class="wcap">Lower-level lake windows</span></button>
       <button class="tile" data-w="10" aria-label="Open: Storefront and commercial glass"><video width="720" height="1280" src="work/storefront.mp4" poster="work/storefront-poster.jpg" muted loop playsinline preload="none" data-auto aria-hidden="true"></video><span class="play">Video</span><span class="wcap">Storefront and commercial glass</span></button>
-      <button class="tile" data-w="11" aria-label="Open: Two-story brick home"><img width="820" height="1093" src="work/brick-two-story-sm.jpg" alt="Two-story brick home" loading="lazy"><span class="wcap">Two-story brick home</span></button>
-      <button class="tile" data-w="12" aria-label="Open: Three-story lakefront home"><img width="619" height="1100" src="work/lakefront-sm.jpg" alt="Three-story lakefront home" loading="lazy"><span class="wcap">Three-story lakefront home</span></button>
-      <button class="tile" data-w="13" aria-label="Open: Front porch home"><img width="820" height="1093" src="work/front-porch-sm.jpg" alt="Front porch home" loading="lazy"><span class="wcap">Front porch home</span></button>
-      <button class="tile" data-w="14" aria-label="Open: French doors and sidelights"><img width="820" height="1093" src="work/french-doors-sm.jpg" alt="French doors and sidelights" loading="lazy"><span class="wcap">French doors and sidelights</span></button>
-      <button class="tile" data-w="15" aria-label="Open: Side windows, both levels"><img width="820" height="1093" src="work/brick-side-sm.jpg" alt="Side windows, both levels" loading="lazy"><span class="wcap">Side windows, both levels</span></button>
+      <button class="tile" data-w="7" aria-label="Open: Covered patio windows and door"><img width="820" height="615" src="work/patio-wide-sm.jpg" alt="Covered patio windows and door" loading="lazy"><span class="wcap">Covered patio windows and door</span></button>
       <button class="tile" data-w="16" aria-label="Open: Bay windows, two stories"><img width="820" height="1093" src="work/bay-windows-sm.jpg" alt="Bay windows, two stories" loading="lazy"><span class="wcap">Bay windows, two stories</span></button>
-      <button class="tile" data-w="17" aria-label="Open: Pure-water pole system"><img width="619" height="1100" src="work/pure-water-pole-sm.jpg" alt="Pure-water pole system" loading="lazy"><span class="wcap">Pure-water pole system</span></button>
+      <button class="tile" data-w="12" aria-label="Open: Three-story lakefront home"><img width="619" height="1100" src="work/lakefront-sm.jpg" alt="Three-story lakefront home" loading="lazy"><span class="wcap">Three-story lakefront home</span></button>
     </div>
   </div>
 </section>
